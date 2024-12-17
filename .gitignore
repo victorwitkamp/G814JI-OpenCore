@@ -3,3 +3,4 @@
 com.apple.recovery.boot/BaseSystem.chunklist
 com.apple.recovery.boot/BaseSystem.dmg
 /System Volume Information
+*.txt
