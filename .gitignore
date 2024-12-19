@@ -4,3 +4,6 @@ com.apple.recovery.boot/BaseSystem.chunklist
 com.apple.recovery.boot/BaseSystem.dmg
 /System Volume Information
 *.txt
+EFI/OC/config_backup.plist
+.fseventsd/fseventsd-uuid
+/SysReport
