@@ -1643,13 +1643,13 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>#boot-args</key>
-				<string>IGLogLevel=8 -NBlueDebug -nbluedbg debug=0x100</string>
+				<string>IGLogLevel=8 -NBlueDebug -nbluedbg debug=0x100 -liludbgall -nvmefdbg -dbgenhdbg -ecedbg -vsmcdbg</string>
 				<key>boot-args</key>
-				<string>-v -liludbgall -nvmefdbg -dbgenhdbg -ecedbg -vsmcdbg keepsyms=1 -vi2c-force-polling</string>
+				<string>-v keepsyms=1 -vi2c-force-polling</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
-				<data>cnUtUlU6MjUy</data>
+				<data>ZW4tVVM6MA==</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
