@@ -457,6 +457,23 @@
 				<key>disable-gpu</key>
 				<true/>
 			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>AAPL,ig-platform-id</key>
+				<data>
+				AAAF/w==
+				</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+				<key>device-id</key>
+				<data>
+				UooAAA==
+				</data>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+				<key>model</key>
+				<string>Intel TigerLake-LP GT2 [Iris Xe Graphics]</string>
+			</dict>
 		</dict>
 		<key>Delete</key>
 		<dict/>
@@ -1430,7 +1447,7 @@
 		<key>Debug</key>
 		<dict>
 			<key>AppleDebug</key>
-			<false/>
+			<true/>
 			<key>ApplePanic</key>
 			<true/>
 			<key>DisableWatchDog</key>
@@ -1444,7 +1461,7 @@
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>3</integer>
+			<integer>67</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1557,7 +1574,73 @@
 				<key>Auxiliary</key>
 				<true/>
 				<key>Comment</key>
-				<string>Perform shutdown</string>
+				<string>ResetSystem Shutdown</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
+				<key>FullNvramAccess</key>
+				<false/>
+				<key>Name</key>
+				<string>Shutdown</string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string>Firmware</string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
+				<string>ResetSystem firmware</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
+				<key>FullNvramAccess</key>
+				<false/>
+				<key>Name</key>
+				<string>Shutdown</string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string>Coldreset</string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
+				<string>ResetSystem coldreset</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Flavour</key>
+				<string>Auto</string>
+				<key>FullNvramAccess</key>
+				<false/>
+				<key>Name</key>
+				<string>Shutdown</string>
+				<key>Path</key>
+				<string>ResetSystem.efi</string>
+				<key>RealPath</key>
+				<false/>
+				<key>TextMode</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string>Warmreset</string>
+				<key>Auxiliary</key>
+				<true/>
+				<key>Comment</key>
+				<string>ResetSystem warmreset</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Flavour</key>
@@ -1645,7 +1728,7 @@
 				<key>#boot-args</key>
 				<string>-v keepsyms=1 IGLogLevel=8 -NBlueDebug -nbluedbg debug=0x100 -liludbgall -nvmefdbg -dbgenhdbg -ecedbg -vsmcdbg</string>
 				<key>boot-args</key>
-				<string>-vi2c-force-polling</string>
+				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling IGLogLevel=8 -igfxblt -igfxcdc -igfxlspcon -nbluedbg</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
