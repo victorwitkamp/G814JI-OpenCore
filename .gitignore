@@ -5,3 +5,4 @@ com.apple.recovery.boot/BaseSystem.dmg
 /System Volume Information
 EFI/OC/config_backup.plist
 .fseventsd/fseventsd-uuid
+*.backup

@@ -495,11 +495,11 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>AwAiDQ==</data>
+				<data>RqcAAA==</data>
 				<key>device-id</key>
-				<data>pkYAAA==</data>
+				<data>iKcAAA==</data>
 				<key>model</key>
-				<string>Intel Raptor Lake UHD Graphics (spoofed as Alder Lake)</string>
+				<string>Intel Raptor Lake UHD Graphics</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -1753,7 +1753,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 igfxonln=1 igfxagdc=0 -igfxblr</string>
+				<string>-v keepsyms=1 debug=0x100</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
