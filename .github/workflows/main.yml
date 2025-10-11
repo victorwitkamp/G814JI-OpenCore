@@ -1,0 +1,30 @@
+name: Validate OpenCore config (ocvalidate)
+
+on:
+  push:
+    paths:
+      - "EFI/OC/config.plist"
+      - ".github/workflows/main.yml"
+  pull_request:
+    paths:
+      - "EFI/OC/config.plist"
+  workflow_dispatch: {}
+
+jobs:
+  ocvalidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup ocvalidate
+        uses: brokeyourbike/ocvalidate-action@v0.3.3
+        with:
+          # IMPORTANT: set this to the exact OpenCore version you’re using
+          # (ocvalidate must match your OC version)
+          opencore-version: "1.0.3"
+          # release: true   # (optional) leave true to use a release build
+
+      - name: Run ocvalidate
+        run: |
+          ocvalidate EFI/OC/config.plist
