@@ -58,7 +58,7 @@
 				<key>Comment</key>
 				<string>Replacement DMAR table with Reserved Memory Regions stripped - requires DMAR table be dropped</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>DMAR.aml</string>
 			</dict>
@@ -93,6 +93,14 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-XOSI.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>DGPU</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Path</key>
+				<string>SSDT-DGPU_v4.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -348,6 +356,36 @@
 				<key>TableSignature</key>
 				<data></data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Rename GFX0 to IGPU (scope _SB_.PC00 only)</string>
+				<key>Enabled</key>
+				<false/>
+				<key>Base</key>
+				<string>\_SB_.PC00</string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Find</key>
+				<data>R0ZYMA==</data>
+				<key>Replace</key>
+				<data>SUdQVQ==</data>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>TableSignature</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data></data>
+			</dict>
 		</array>
 		<key>Quirks</key>
 		<dict>
@@ -408,6 +446,8 @@
 			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
+			<key>ClearTaskSwitchBit</key>
+			<false/>
 			<key>DevirtualiseMmio</key>
 			<true/>
 			<key>DisableSingleUser</key>
@@ -452,27 +492,14 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>disable-gpu</key>
-				<true/>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL,ig-platform-id</key>
-				<data>
-				AAAF/w==
-				</data>
-				<key>AAPL,slot-name</key>
-				<string>Internal@0,2,0</string>
+				<data>AwAiDQ==</data>
 				<key>device-id</key>
-				<data>
-				UooAAA==
-				</data>
-				<key>device_type</key>
-				<string>VGA compatible controller</string>
+				<data>pkYAAA==</data>
 				<key>model</key>
-				<string>Intel TigerLake-LP GT2 [Iris Xe Graphics]</string>
+				<string>Intel Raptor Lake UHD Graphics (spoofed as Alder Lake)</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -526,7 +553,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RestrictEvents</string>
 				<key>MaxKernel</key>
@@ -742,7 +769,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekRTL8111</string>
 				<key>MaxKernel</key>
@@ -904,7 +931,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>MaxKernel</key>
@@ -1459,7 +1486,7 @@
 			<key>LogModules</key>
 			<string>*</string>
 			<key>SysReport</key>
-			<false/>
+			<true/>
 			<key>Target</key>
 			<integer>67</integer>
 		</dict>
@@ -1511,7 +1538,7 @@
 			<key>ScanPolicy</key>
 			<integer>0</integer>
 			<key>SecureBootModel</key>
-			<string>Default</string>
+			<string>Disabled</string>
 			<key>Vault</key>
 			<string>Optional</string>
 		</dict>
@@ -1725,10 +1752,8 @@
 				<integer>0</integer>
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
-				<key>#boot-args</key>
-				<string>-v keepsyms=1 IGLogLevel=8 -NBlueDebug -nbluedbg debug=0x100 -liludbgall -nvmefdbg -dbgenhdbg -ecedbg -vsmcdbg</string>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling IGLogLevel=8 -igfxblt -igfxcdc -igfxlspcon -nbluedbg</string>
+				<string>-v keepsyms=1 debug=0x100 igfxonln=1 igfxagdc=0 -igfxblr</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1799,23 +1824,23 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02053200GU0000JA</string>
+			<string>C02009609GU0000A8</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>+AN3BThX</data>
+			<data>8LR5xQ6U</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>MacBookPro16,4</string>
+			<string>MacBookPro16,3</string>
 			<key>SystemSerialNumber</key>
-			<string>C02DXAZZMD6T</string>
+			<string>C02CCSYJP3XY</string>
 			<key>SystemUUID</key>
-			<string>5C206F36-1444-413D-9FE2-20CC713F3F18</string>
+			<string>F083155D-BA62-465D-8930-D53EF3346C72</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -2322,7 +2347,7 @@
 			<key>GopBurstMode</key>
 			<false/>
 			<key>GopPassThrough</key>
-			<string>Disabled</string>
+			<string>Enabled</string>
 			<key>IgnoreTextInGraphics</key>
 			<false/>
 			<key>InitialMode</key>
@@ -2398,7 +2423,7 @@
 			<key>EnableVmx</key>
 			<false/>
 			<key>ExitBootServicesDelay</key>
-			<integer>0</integer>
+			<integer>5000</integer>
 			<key>ForceOcWriteFlash</key>
 			<false/>
 			<key>ForgeUefiSupport</key>
