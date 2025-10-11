@@ -1,0 +1,42 @@
+AMI USB Driver
+TPM Driver
+PCI Serial Driver
+Serial ATA Controller Initialization Driver
+Generic Disk I/O Driver
+Partition Driver(MBR/GPT/El Torito)
+Serial Io Uart Driver
+Touch Host Controller QuickSpi Driver
+Touch Host Controller Driver
+Ami HID keyboard Driver
+Ami HID Simple Pointer
+I2c Host Driver
+AMI Wi-Fi Manager Driver
+FAT File System Driver
+SCSI Bus Driver
+Scsi Disk Driver
+AMI SDIO Driver
+Universal Flash Storage (UFS) Pass Thru Driver
+Universal Flash Storage (UFS) Pci Host Controller Driver
+UefiRestNetwork
+Realtek UEFI UNDI Driver
+Intel(R) RST 20.1.0.5751 RST VMD Driver
+ARP Network Service Driver
+Simple Network Protocol Driver
+MNP Network Service Driver
+UEFI PXE Base Code Driver
+TCP Network Service Driver
+UEFI HTTP Boot Driver
+HttpDxe
+DNS Network Service Driver
+DHCP Protocol Driver
+IP4 Network Service Driver
+MTFTP4 Network Service
+UDP Network Service Driver
+DHCP6 Protocol Driver
+IP6 Network Service Driver
+MTFTP6 Network Service Driver
+UDP6 Network Service Driver
+Intel UEFI WLAN Driver
+Intel(R) Ethernet Connection I219 0.2.02
+Intel(R) GOP Driver [17.0.1081]
+HFS File System Driver
