@@ -29,7 +29,7 @@
 
 CPU	- 13th Gen Intel(R) Core(TM) i9-13980HX
 
-iGPU - Intel(R) UHD Graphics (Modified NootedBlue. Only 15MB video memory, no acceleration)
+iGPU - Intel(R) UHD Graphics (NootedBlue with proper Raptor Lake device ID 0xA788)
 
 Ethernet - Realtek PCIe GbE Family Controller
 
