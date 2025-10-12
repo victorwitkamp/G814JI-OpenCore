@@ -98,7 +98,7 @@
 				<key>Comment</key>
 				<string>DGPU</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-DGPU_v4.aml</string>
 			</dict>
@@ -494,12 +494,10 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,ig-platform-id</key>
-				<data>RqcAAA==</data>
 				<key>device-id</key>
-				<data>iKcAAA==</data>
+				<data>XIoAAA==</data>
 				<key>model</key>
-				<string>Intel Raptor Lake UHD Graphics</string>
+				<string>Intel Iris Xe (spoofed 0x8A5C)</string>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -769,7 +767,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RealtekRTL8111</string>
 				<key>MaxKernel</key>
