@@ -1,6 +1,6 @@
 # Asus ROG Strix G814JI OpenCore
 
-**Current macOS version:** Ventura (13)
+**Current macOS version:** Ventura (13) → Sequoia (15.1)
 
 **Current OpenCore version:** 1.0.3
 
@@ -9,6 +9,16 @@
 **GOP Version:** 17.0.1081
 
 **EC Version:** G814JIEC.051
+
+## 🆕 macOS Sequoia Graphics Configuration
+
+For Intel Graphics (NootedBlue) setup on macOS Sequoia, see:
+- **📖 [Complete NootedBlue Guide](NOOTEDBLUE_README.md)** - Start here for navigation
+- **🚀 [Quick Start Guide](NOOTEDBLUE_QUICKSTART.md)** - Fast setup (5 minutes)
+- **📊 [Full Analysis](NOOTEDBLUE_ANALYSIS.md)** - Detailed technical information
+- **✅ [Action Items](NOOTEDBLUE_ACTION_ITEMS.md)** - Configuration checklist
+
+**TL;DR**: Use `NootedBlue.kext macosx15.1 2024-11-14` (already installed) with additional DeviceProperties from the guides.
 
 ## Components
 
