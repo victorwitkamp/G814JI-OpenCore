@@ -111,7 +111,7 @@
 				<key>Comment</key>
 				<string>Drop DMAR Table</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>OemTableId</key>
 				<data>
 				RURLMiAgICA=
@@ -360,7 +360,7 @@
 				<key>Comment</key>
 				<string>Rename GFX0 to IGPU (scope _SB_.PC00 only)</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Base</key>
 				<string>\_SB_.PC00</string>
 				<key>BaseSkip</key>
@@ -494,8 +494,6 @@
 		<dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>device-id</key>
-				<data>XIoAAA==</data>
 				<key>model</key>
 				<string>Intel Iris Xe (spoofed 0x8A5C)</string>
 			</dict>
@@ -785,7 +783,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooGPIO</string>
 				<key>MaxKernel</key>
@@ -803,7 +801,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CServices</string>
 				<key>MaxKernel</key>
@@ -821,7 +819,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooInput</string>
 				<key>MaxKernel</key>
@@ -839,7 +837,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2C</string>
 				<key>MaxKernel</key>
@@ -857,7 +855,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooI2CHID</string>
 				<key>MaxKernel</key>
