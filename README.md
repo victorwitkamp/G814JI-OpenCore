@@ -74,6 +74,8 @@ The following boot arguments are configured:
 
 ### ACPI
 
+ACPI patches are configured for proper power management and device initialization.
+
 ### Kexts
 
 | **Kext** | **Version** | **Purpose** |
@@ -91,3 +93,84 @@ The following boot arguments are configured:
 | USBToolBox + UTBMap | - | USB port mapping |
 | ECEnabler | - | Embedded Controller support |
 | RestrictEvents | - | CPU rename and other system tweaks |
+## Additional Configuration Details
+
+### Graphics Configuration
+
+The laptop has two graphics devices:
+- **Intel UHD Graphics** (iGPU): Enabled and working with NootedBlue kext
+- **NVIDIA GeForce RTX 4070**: Disabled via DeviceProperties (`disable-gpu = true`)
+
+The integrated graphics is configured with Raptor Lake device ID `0xA788`. The NootedBlue kext provides native Intel UHD Graphics support for 13th Gen Intel processors.
+
+### SMBIOS
+
+**Model**: MacBookPro16,3
+
+This SMBIOS model is chosen because:
+- It supports Intel Coffee Lake+ CPUs (compatible with Raptor Lake)
+- It's a laptop model suitable for mobile hardware
+- It has proper power management characteristics
+
+### Important Notes
+
+1. **Audio**: Currently not working. AppleALC v1.9.5 is installed but may need proper layout-id configuration for the Realtek audio codec.
+
+2. **Discrete GPU**: The NVIDIA RTX 4070 is disabled as there's no macOS support for NVIDIA GPUs after High Sierra.
+
+3. **Trackpad**: Using VoodooI2C with polling mode (`-vi2c-force-polling` boot argument) for I2C HID trackpad support.
+
+4. **Wi-Fi**: Using AirportItlwm for native Wi-Fi experience. For HeliPort companion app, use itlwm.kext instead.
+
+5. **USB Mapping**: Custom USB mapping is configured with USBToolBox and UTBMap kexts.
+
+### Performance Optimizations
+
+- **NVMeFix**: Improves NVMe power management and fixes kernel panics
+- **RestrictEvents**: Enables CPU renaming and other system optimizations
+- **ECEnabler**: Provides proper Embedded Controller support for battery management
+- **AppleXcpmCfgLock**: Enabled for proper CPU power management
+- **ProvideCurrentCpuInfo**: Ensures proper CPU frequency information
+
+### Future Improvements
+
+Areas that could be improved in future updates:
+
+1. **Audio Support**: Test different layout-ids for AppleALC to enable audio
+2. **NootedBlue Updates**: Monitor for newer NootedBlue releases for better iGPU support
+3. **macOS Updates**: Test compatibility with newer macOS versions (currently Ventura)
+4. **Power Management**: Fine-tune CPU power management and battery life
+
+## Troubleshooting
+
+### Boot Issues
+
+If you experience boot issues:
+1. Ensure Secure Boot is disabled in BIOS
+2. Verify boot-args are set correctly
+3. Check that all kexts are enabled in config.plist
+4. Use verbose mode (`-v`) to see boot logs
+
+### Graphics Issues
+
+If graphics aren't working:
+1. Verify NootedBlue.kext is enabled
+2. Check that `-wegnoegpu` is in boot-args
+3. Ensure iGPU is enabled in BIOS
+4. Verify device ID is set correctly (0xA788 for Raptor Lake)
+
+### Network Issues
+
+For Wi-Fi problems:
+1. Ensure correct AirportItlwm version for your macOS version
+2. Check that Intel Wi-Fi 6E AX211 is supported
+3. Try itlwm.kext with HeliPort if AirportItlwm doesn't work
+
+## Credits
+
+- [Acidanthera](https://github.com/acidanthera) for OpenCore, Lilu, VirtualSMC, WhateverGreen, AppleALC, and other kexts
+- [OpenIntelWireless](https://github.com/OpenIntelWireless) for itlwm/AirportItlwm
+- [VoodooI2C Team](https://github.com/VoodooI2C) for trackpad support
+- [ChefKiss Team](https://github.com/ChefKissInc) for NootedBlue
+- [Mieze](https://github.com/Mieze) for RealtekRTL8111
+- [Dortania](https://dortania.github.io/) for OpenCore installation guides
