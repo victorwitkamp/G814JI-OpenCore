@@ -2,7 +2,7 @@
 
 **Current macOS version:** Ventura (13)
 
-**Current OpenCore version:** 1.0.3
+**Current OpenCore version:** 1.0.5
 
 **BIOS Version:** 331
 
@@ -29,7 +29,7 @@
 
 CPU	- 13th Gen Intel(R) Core(TM) i9-13980HX
 
-iGPU - Intel(R) UHD Graphics (NootedBlue with proper Raptor Lake device ID 0xA788)
+iGPU - Intel(R) UHD Graphics (NootedBlue v1.0.0 with proper Raptor Lake device ID 0xA788)
 
 Ethernet - Realtek PCIe GbE Family Controller
 
@@ -61,5 +61,33 @@ Advanced\VMD Setup menu\Enable VMD Controller - Disabled
 
 Boot\Fast Boot - Disabled
 
+### Boot Arguments
+
+The following boot arguments are configured:
+
+- `-v` - Verbose mode for troubleshooting
+- `keepsyms=1` - Keep kernel symbols for panic logs
+- `debug=0x100` - Enable debug output
+- `-vi2c-force-polling` - Force polling mode for I2C trackpad
+- `-wegnoegpu` - Disable discrete NVIDIA GPU
+- `-igfxnotelemetryload` - Disable Intel graphics telemetry
+
 ### ACPI
+
 ### Kexts
+
+| **Kext** | **Version** | **Purpose** |
+| -------- | ----------- | ----------- |
+| Lilu | 1.7.1 | Patching engine for various kexts |
+| VirtualSMC | 1.3.7 | SMC emulation for macOS |
+| WhateverGreen | 1.7.0 | Graphics patching |
+| AppleALC | 1.9.5 | Audio support |
+| NootedBlue | 1.0.0 | Intel UHD Graphics (Raptor Lake) support |
+| AirportItlwm | 2.3.0 | Intel Wi-Fi 6E AX211 support |
+| RealtekRTL8111 | 2.5.0 | Realtek Ethernet controller |
+| VoodooI2C | 2.9.1 | I2C trackpad support |
+| VoodooPS2Controller | - | PS2 keyboard support |
+| NVMeFix | - | NVMe power management |
+| USBToolBox + UTBMap | - | USB port mapping |
+| ECEnabler | - | Embedded Controller support |
+| RestrictEvents | - | CPU rename and other system tweaks |
