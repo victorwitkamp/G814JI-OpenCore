@@ -289,6 +289,13 @@
 				<key>disable-gpu</key>
 				<true/>
 			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>AAPL,ig-platform-id</key>
+				<data>AACbWQ==</data>
+				<key>device-id</key>
+				<data>mKcAAA==</data>
+			</dict>
 		</dict>
 		<key>Delete</key>
 		<dict/>
@@ -375,9 +382,9 @@
 				<key>BundlePath</key>
 				<string>NootedBlue.kext</string>
 				<key>Comment</key>
-				<string>Video patches</string>
+				<string>Video patches for Raptor Lake iGPU</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NootedBlue</string>
 				<key>MaxKernel</key>
@@ -393,9 +400,9 @@
 				<key>BundlePath</key>
 				<string>WhateverGreen.kext</string>
 				<key>Comment</key>
-				<string>Video patches</string>
+				<string>Disabled - conflicts with NootedBlue for Raptor Lake</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/WhateverGreen</string>
 				<key>MaxKernel</key>
@@ -1535,7 +1542,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling IGLogLevel=8 -igfxvesa -igfxonln=1 -wegnoegpu</string>
+				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
