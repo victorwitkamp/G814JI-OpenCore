@@ -94,6 +94,14 @@
 				<key>Path</key>
 				<string>SSDT-DGPU_v4.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Force PS2 Keyboard to be enabled</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PS2K.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
