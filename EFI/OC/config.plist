@@ -339,7 +339,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/DebugEnhancer</string>
 				<key>MaxKernel</key>
@@ -483,7 +483,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/USBToolBox</string>
 				<key>MaxKernel</key>
@@ -501,7 +501,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
@@ -699,7 +699,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/itlwm</string>
 				<key>MaxKernel</key>
@@ -2227,7 +2227,7 @@
 			<key>TscSyncTimeout</key>
 			<integer>0</integer>
 			<key>UnblockFsConnect</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>ReservedMemory</key>
 		<array/>
