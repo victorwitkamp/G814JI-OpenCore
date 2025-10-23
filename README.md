@@ -73,7 +73,7 @@ The following SSDT patches are used:
 - **SSDT-SBUS-MCHC.aml** - Defines MCHC and BUS0 device for SMBus compatibility
 - **SSDT-GPI0.aml** - Enables GPIO controller for I2C touchpad
 - **SSDT-XOSI.aml** - OS detection spoofing
-- **SSDT-DGPU_v4.aml** - Disables discrete GPU (NVIDIA RTX 4070)
+- **SSDT-DGPU_v4.aml** - Properly disables discrete GPU (NVIDIA RTX 4070) using ACPI power management methods (_INI, _PS3, _OFF). See [docs/DGPU_DISABLE.md](docs/DGPU_DISABLE.md) for details.
 - **SSDT-PS2K.aml** - Forces PS2 keyboard device to be enabled (fixes built-in keyboard)
 
 ### Kexts
