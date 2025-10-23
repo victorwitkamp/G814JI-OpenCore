@@ -6,3 +6,6 @@ com.apple.recovery.boot/BaseSystem.dmg
 EFI/OC/config_backup.plist
 .fseventsd/fseventsd-uuid
 *.backup
+/.Spotlight-V100
+/.Trashes
+.DS_Store
