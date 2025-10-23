@@ -138,53 +138,69 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>X09TSQ==</data>
+				<data>
+				X09TSQ==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Replace</key>
-				<data>WE9TSQ==</data>
+				<data>
+				WE9TSQ==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data></data>
+				<data>
+				</data>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Rename GFX0 to IGPU (scope _SB_.PC00 only)</string>
-				<key>Enabled</key>
-				<false/>
 				<key>Base</key>
 				<string>\_SB_.PC00</string>
 				<key>BaseSkip</key>
 				<integer>0</integer>
-				<key>Find</key>
-				<data>R0ZYMA==</data>
-				<key>Replace</key>
-				<data>SUdQVQ==</data>
+				<key>Comment</key>
+				<string>Rename GFX0 to IGPU (scope _SB_.PC00 only)</string>
 				<key>Count</key>
 				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				R0ZYMA==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				SUdQVQ==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>ReplaceMask</key>
-				<data></data>
 				<key>TableSignature</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -192,25 +208,35 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
-				<data>X1BTMA==</data>
+				<data>
+				X1BTMA==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data>U2dQZWc=</data>
+				<data>
+				U2dQZWc=
+				</data>
 				<key>Replace</key>
-				<data>WFBTMA==</data>
+				<data>
+				WFBTMA==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<data>
+				U1NEVA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -218,25 +244,35 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
-				<data>X1BTMw==</data>
+				<data>
+				X1BTMw==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data>U2dQZWc=</data>
+				<data>
+				U2dQZWc=
+				</data>
 				<key>Replace</key>
-				<data>WFBTMw==</data>
+				<data>
+				WFBTMw==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<data>
+				U1NEVA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -244,25 +280,35 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
-				<data>X09OXw==</data>
+				<data>
+				X09OXw==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data>U2dQZWc=</data>
+				<data>
+				U2dQZWc=
+				</data>
 				<key>Replace</key>
-				<data>WE9OXw==</data>
+				<data>
+				WE9OXw==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<data>
+				U1NEVA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -270,25 +316,35 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
-				<data>X09GRg==</data>
+				<data>
+				X09GRg==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data>U2dQZWc=</data>
+				<data>
+				U2dQZWc=
+				</data>
 				<key>Replace</key>
-				<data>WE9GRg==</data>
+				<data>
+				WE9GRg==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<data>
+				U1NEVA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -296,25 +352,35 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
-				<data>X1NUQQ==</data>
+				<data>
+				X1NUQQ==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data>U2dQZWc=</data>
+				<data>
+				U2dQZWc=
+				</data>
 				<key>Replace</key>
-				<data>WFNUQQ==</data>
+				<data>
+				WFNUQQ==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>U1NEVA==</data>
+				<data>
+				U1NEVA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -324,23 +390,32 @@
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>QVRLMzAwMQhfQ0lEDEHQAwsUC19TVEE=</data>
+				<data>
+				QVRLMzAwMQhfQ0lEDEHQAwsUC19TVEE=
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Replace</key>
-				<data>QVRLMzAwMQhfQ0lEDEHQAwsUC1hTVEE=</data>
+				<data>
+				QVRLMzAwMQhfQ0lEDEHQAwsUC1hTVEE=
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>RFNEVA==</data>
+				<data>
+				RFNEVA==
+				</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
@@ -448,18 +523,17 @@
 	<dict>
 		<key>Add</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
-			<dict>
-				<!-- <key>AAPL,ig-platform-id</key>
-				<data>AACbWQ==</data> -->
-				<!--  0x00009B59 -->
-				<key>device-id</key>
-				<data>iKcAAA==</data>   <!-- 0xA788 - Raptor Lake UHD Graphics -->
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>disable-gpu</key>
 				<true/>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>device-id</key>
+				<data>
+				iKcAAA==
+				</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -922,13 +996,17 @@
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
-			<data>6wYJAAAAAAAAAAAAAAAAAA==</data>
+			<data>
+			6wYJAAAAAAAAAAAAAAAAAA==
+			</data>
 			<key>Cpuid1Mask</key>
-			<data>/////wAAAAAAAAAAAAAAAA==</data>
-			<key>MinKernel</key>
-			<string>24.0.0</string>
+			<data>
+			/////wAAAAAAAAAAAAAAAA==
+			</data>
 			<key>MaxKernel</key>
 			<string></string>
+			<key>MinKernel</key>
+			<string>24.0.0</string>
 		</dict>
 		<key>Force</key>
 		<array>
@@ -1288,7 +1366,9 @@
 				<key>Enabled</key>
 				<false/>
 				<key>Find</key>
-				<data>ukgBAAAx9g==</data>
+				<data>
+				ukgBAAAx9g==
+				</data>
 				<key>Identifier</key>
 				<string>kernel</string>
 				<key>Limit</key>
@@ -1301,7 +1381,9 @@
 				<key>MinKernel</key>
 				<string>20.4.0</string>
 				<key>Replace</key>
-				<data>ukgBAADrBQ==</data>
+				<data>
+				ukgBAADrBQ==
+				</data>
 				<key>ReplaceMask</key>
 				<data>
 				</data>
@@ -1672,7 +1754,9 @@
 			<key>4D1EDE05-38C7-4A6A-9CC6-4BCCA8B38C14</key>
 			<dict>
 				<key>DefaultBackgroundColor</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 			<key>4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102</key>
 			<dict>
@@ -1684,18 +1768,24 @@
 			<dict>
 				<key>#INFO (prev-lang:kbd)</key>
 				<string>en:252 (ABC), set 656e3a323532</string>
+				<key>#boot-args</key>
+				<string>-v keepsyms=1 debug=0x100 igfxfw=2 igfxonln=1 -wegdbg -wegtree -igfxdump -liludump</string>
 				<key>ForceDisplayRotationInEFI</key>
 				<integer>0</integer>
 				<key>SystemAudioVolume</key>
-				<data>Rg==</data>
-				<key>#boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 igfxfw=2 igfxonln=1 -wegdbg -wegtree -igfxdump -liludump</string>
+				<data>
+				Rg==
+				</data>
 				<key>boot-args</key>
 				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling</string>
 				<key>csr-active-config</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 				<key>prev-lang:kbd</key>
-				<data>ZW4tVVM6MA==</data>
+				<data>
+				ZW4tVVM6MA==
+				</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
 			</dict>
@@ -1768,7 +1858,9 @@
 			<key>ProcessorType</key>
 			<integer>0</integer>
 			<key>ROM</key>
-			<data>8LR5xQ6U</data>
+			<data>
+			8LR5xQ6U
+			</data>
 			<key>SpoofVendor</key>
 			<true/>
 			<key>SystemMemoryStatus</key>
