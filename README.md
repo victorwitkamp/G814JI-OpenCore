@@ -73,7 +73,9 @@ The following SSDT patches are used:
 - **SSDT-SBUS-MCHC.aml** - Defines MCHC and BUS0 device for SMBus compatibility
 - **SSDT-GPI0.aml** - Enables GPIO controller for I2C touchpad
 - **SSDT-XOSI.aml** - OS detection spoofing
-- **SSDT-DGPU_v4.aml** - Properly disables discrete GPU (NVIDIA RTX 4070) using ACPI power management methods (_INI, _PS3, _OFF). See [docs/DGPU_DISABLE.md](docs/DGPU_DISABLE.md) for details.
-- **SSDT-PS2K.aml** - Forces PS2 keyboard device to be enabled (fixes built-in keyboard)
+- **SSDT-DGPU_v4.aml** - Properly disables discrete GPU (NVIDIA RTX 4070) using ACPI power management methods (_INI, _PS3, _OFF). **Requires ACPI renames in config.plist** - see [docs/ACPI_RENAMES.md](docs/ACPI_RENAMES.md) and [docs/DGPU_DISABLE.md](docs/DGPU_DISABLE.md) for details.
+- **SSDT-PS2K.aml** - Forces PS2 keyboard device to be enabled (fixes built-in keyboard). **Requires ACPI rename in config.plist** - see [docs/ACPI_RENAMES.md](docs/ACPI_RENAMES.md) and [docs/PS2_KEYBOARD_FIX.md](docs/PS2_KEYBOARD_FIX.md) for details.
+
+**IMPORTANT**: SSDT-DGPU_v4 and SSDT-PS2K require ACPI binary patches in your config.plist to rename existing methods. Without these patches, you'll get `AE_ALREADY_EXISTS` errors and the SSDTs won't load. See [docs/ACPI_RENAMES.md](docs/ACPI_RENAMES.md) for complete instructions.
 
 ### Kexts

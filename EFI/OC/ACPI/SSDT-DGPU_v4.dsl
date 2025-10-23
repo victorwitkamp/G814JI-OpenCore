@@ -2,11 +2,16 @@
  * SSDT-DGPU: Properly Disable NVIDIA Discrete GPU
  * 
  * This SSDT properly disables the discrete GPU (NVIDIA RTX 4070) by:
- * 1. Implementing _INI to disable the GPU at boot
- * 2. Implementing _PS3 to put the GPU in D3 power state (deepest sleep)
- * 3. Implementing _PS0 to prevent the GPU from powering back on
- * 4. Implementing _ON/_OFF methods for proper power resource management
- * 5. Returning 0 from _STA to hide the device from the OS
+ * 1. Renaming original _PS0, _PS3, _ON, _OFF, _STA methods (via config.plist ACPI patches)
+ * 2. Implementing new versions that prevent the GPU from powering on
+ * 3. Using _INI to ensure GPU is disabled at boot
+ *
+ * REQUIRED ACPI Renames in config.plist:
+ * - _SB.PC00.PEG1.PEGP._PS0 to XPS0
+ * - _SB.PC00.PEG1.PEGP._PS3 to XPS3
+ * - _SB.PC00.PEG1.PEGP._ON_ to XON_
+ * - _SB.PC00.PEG1.PEGP._OFF to XOFF
+ * - _SB.PC00.PEG1.PEGP._STA to XSTA
  *
  * This approach ensures the GPU is both:
  * - Properly powered down (reduces power consumption and heat)
@@ -18,16 +23,14 @@
  * - Analysis of decompiled ACPI tables (DSDT and SSDTs)
  *
  * Device Path: \_SB.PC00.PEG1.PEGP (NVIDIA RTX 4070)
- * Alternative paths also handled for compatibility
  *
  * Compilation: iasl -ve SSDT-DGPU_v4.dsl
  */
 DefinitionBlock ("", "SSDT", 2, "HACK", "DGPUOFF", 0x00000000)
 {
     External (_SB_.PC00.PEG1.PEGP, DeviceObj)
-    External (_SB_.PC00.PEG1.PEGP.PRES, MethodObj)    // Check if device present
-    External (_SB_.PCI0.PEG0.PEGP, DeviceObj)
-    External (_SB_.PCI0.PEGP, DeviceObj)
+    External (_SB_.PC00.PEG1.PEGP.XSTA, MethodObj)    // Renamed original _STA
+    External (_SB_.PC00.PEG1.PEGP.XOFF, MethodObj)    // Renamed original _OFF
 
     // Primary dGPU path: \_SB.PC00.PEG1.PEGP
     Scope (\_SB.PC00.PEG1.PEGP)
@@ -36,8 +39,11 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "DGPUOFF", 0x00000000)
         // This ensures the GPU is powered off as early as possible
         Method (_INI, 0, NotSerialized)
         {
-            // Put device into D3 power state immediately
-            _PS3()
+            // Call the original _OFF method to properly power down the GPU
+            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
+            {
+                \_SB.PC00.PEG1.PEGP.XOFF ()
+            }
         }
 
         // _PS0: Power State 0 (D0) - Full On
@@ -51,16 +57,21 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "DGPUOFF", 0x00000000)
         // This is the deepest sleep state, effectively powering off the device
         Method (_PS3, 0, NotSerialized)
         {
-            // Device is now in D3 (off) state
-            // This reduces power consumption and heat generation
+            // Call the original _OFF method to properly power down
+            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
+            {
+                \_SB.PC00.PEG1.PEGP.XOFF ()
+            }
         }
 
         // _OFF: Power Off
-        // Explicit power off method
+        // Call the original _OFF to ensure proper power down
         Method (_OFF, 0, NotSerialized)
         {
-            // Put device in D3 state
-            _PS3()
+            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
+            {
+                \_SB.PC00.PEG1.PEGP.XOFF ()
+            }
         }
 
         // _ON: Power On  
@@ -73,77 +84,6 @@ DefinitionBlock ("", "SSDT", 2, "HACK", "DGPUOFF", 0x00000000)
         // _STA: Status
         // Returns 0 to indicate the device is not present
         // This hides the device from the operating system
-        Method (_STA, 0, NotSerialized)
-        {
-            If (CondRefOf (\_SB.PC00.PEG1.PEGP.PRES))
-            {
-                // Even if device is physically present, report it as not present
-                If (\_SB.PC00.PEG1.PEGP.PRES())
-                {
-                    Return (Zero)
-                }
-            }
-            
-            Return (Zero)
-        }
-    }
-
-    // Alternative path 1: \_SB.PCI0.PEG0.PEGP (for compatibility)
-    Scope (\_SB.PCI0.PEG0.PEGP)
-    {
-        Method (_INI, 0, NotSerialized)
-        {
-            _PS3()
-        }
-
-        Method (_PS0, 0, NotSerialized)
-        {
-        }
-
-        Method (_PS3, 0, NotSerialized)
-        {
-        }
-
-        Method (_OFF, 0, NotSerialized)
-        {
-            _PS3()
-        }
-
-        Method (_ON, 0, NotSerialized)
-        {
-        }
-
-        Method (_STA, 0, NotSerialized)
-        {
-            Return (Zero)
-        }
-    }
-
-    // Alternative path 2: \_SB.PCI0.PEGP (for compatibility)
-    Scope (\_SB.PCI0.PEGP)
-    {
-        Method (_INI, 0, NotSerialized)
-        {
-            _PS3()
-        }
-
-        Method (_PS0, 0, NotSerialized)
-        {
-        }
-
-        Method (_PS3, 0, NotSerialized)
-        {
-        }
-
-        Method (_OFF, 0, NotSerialized)
-        {
-            _PS3()
-        }
-
-        Method (_ON, 0, NotSerialized)
-        {
-        }
-
         Method (_STA, 0, NotSerialized)
         {
             Return (Zero)

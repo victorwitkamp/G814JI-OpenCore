@@ -1,33 +1,32 @@
 /*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20230628 (64-bit version)
- * Copyright (c) 2000 - 2023 Intel Corporation
+ * SSDT-PS2K: Force PS/2 Keyboard Device to be Enabled
+ * 
+ * This SSDT forces the PS/2 keyboard device to always report as present
+ * so that VoodooPS2Controller can attach to it, even during installation.
  *
- * Disassembling to symbolic ASL+ operators
+ * REQUIRED ACPI Rename in config.plist:
+ * - _SB.PC00.LPCB.PS2K._STA to XSTA
  *
- * Disassembly of SSDT-PS2K.aml, Tue Oct 21 11:17:29 2025
+ * The original _STA method in DSDT returns 0x0F only if (IOST & 0x0400) is true.
+ * This override ensures the device is always reported as present (0x0F).
  *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00000074 (116)
- *     Revision         0x02
- *     Checksum         0x28
- *     OEM ID           "ASUS"
- *     OEM Table ID     "PS2K"c
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20230628 (539166248)
+ * Device Path: \_SB.PC00.LPCB.PS2K
+ * 
+ * Compilation: iasl -ve SSDT-PS2K.dsl
  */
 DefinitionBlock ("", "SSDT", 2, "ASUS", "PS2K", 0x00000000)
 {
     // Correct PS2K path per DSDT: \_SB.PC00.LPCB.PS2K
     External (_SB_.PC00.LPCB.PS2K, DeviceObj)
+    External (_SB_.PC00.LPCB.PS2K.XSTA, MethodObj)    // Renamed original _STA
 
     Scope (_SB.PC00.LPCB.PS2K)
     {
         // Force device present so VoodooPS2Keyboard attaches even in installer
         Method (_STA, 0, NotSerialized)  // _STA: Status
         {
+            // Always return 0x0F (device present, enabled, functioning, visible)
+            // Original _STA checks (IOST & 0x0400), but we want it always enabled
             Return (0x0F)
         }
     }
