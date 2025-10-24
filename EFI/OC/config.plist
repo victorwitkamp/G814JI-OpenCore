@@ -335,7 +335,7 @@
 				<true/>
 				<key>Find</key>
 				<data>
-				X09GRg==
+				WydcV1dNVBRJBV9PRkYI
 				</data>
 				<key>Limit</key>
 				<integer>0</integer>
@@ -348,7 +348,7 @@
 				</data>
 				<key>Replace</key>
 				<data>
-				WE9GRg==
+				WydcV1dNVBRJBVhPRkYI
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -403,34 +403,43 @@
 				</data>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Rename _STA to XSTA for PS2K (DSDT)</string>
-				<key>Enabled</key>
-				<false/>
-				<key>TableSignature</key>
-				<data>RFNEVA==</data><!-- "DSDT" -->
 				<key>Base</key>
 				<string>\_SB.PC00.LPCB</string>
 				<key>BaseSkip</key>
 				<integer>0</integer>
-				<key>Find</key>
-				<data>X1NUQQ==</data><!-- "_STA" -->
-				<key>Replace</key>
-				<data>WFNUQQ==</data><!-- "XSTA" -->
+				<key>Comment</key>
+				<string>Rename _STA to XSTA for PS2K (DSDT)</string>
 				<key>Count</key>
 				<integer>0</integer>
-				<key>Skip</key>
-				<integer>0</integer>
+				<key>Enabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				X1NUQQ==
+				</data>
 				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				WFNUQQ==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
-				<key>Mask</key>
-				<data></data>
-				<key>ReplaceMask</key>
-				<data></data>
-				<key>OemTableId</key>
-				<data></data>
+				<key>TableSignature</key>
+				<data>
+				RFNEVA==
+				</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
