@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+    RECOMMENDED OPENCORE CONFIGURATION SNIPPET FOR NOOTEDBLUE
+    Asus G814JI - Intel Raptor Lake iGPU (0xA788) - macOS Sequoia
+    
+    This is NOT a complete config.plist - these are the key settings to add/verify
+    in your existing config.plist file.
+-->
+<dict>
+    <!-- =============================================== -->
+    <!-- DeviceProperties Section -->
+    <!-- =============================================== -->
+    <key>DeviceProperties</key>
+    <dict>
+        <key>Add</key>
+        <dict>
+            <!-- Intel iGPU Configuration -->
+            <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+            <dict>
+                <!-- Spoof Raptor Lake (0xA788) as Ice Lake (0x8A5C) -->
+                <key>device-id</key>
+                <data>XAoAAA==</data>
+                
+                <!-- Platform ID for Raptor Lake Mobile -->
+                <key>AAPL,ig-platform-id</key>
+                <data>AABYmA==</data>
+                
+                <!-- Display Name -->
+                <key>model</key>
+                <string>Intel Iris Xe Graphics</string>
+                
+                <!-- Enable Metal Support -->
+                <key>enable-metal</key>
+                <integer>1</integer>
+                
+                <!-- Framebuffer Patches -->
+                <key>framebuffer-patch-enable</key>
+                <integer>1</integer>
+                
+                <!-- Stolen Memory: 19MB -->
+                <key>framebuffer-stolenmem</key>
+                <data>AAAwAQ==</data>
+                
+                <!-- Framebuffer Memory: 9MB -->
+                <key>framebuffer-fbmem</key>
+                <data>AACQAA==</data>
+            </dict>
+        </dict>
+    </dict>
+    
+    <!-- =============================================== -->
+    <!-- Kernel Section -->
+    <!-- =============================================== -->
+    <key>Kernel</key>
+    <dict>
+        <key>Add</key>
+        <array>
+            <!-- Lilu must load before NootedBlue -->
+            <dict>
+                <key>Arch</key>
+                <string>Any</string>
+                <key>BundlePath</key>
+                <string>Lilu.kext</string>
+                <key>Comment</key>
+                <string>Patch engine - Required for NootedBlue</string>
+                <key>Enabled</key>
+                <true/>
+                <key>ExecutablePath</key>
+                <string>Contents/MacOS/Lilu</string>
+                <key>MaxKernel</key>
+                <string></string>
+                <key>MinKernel</key>
+                <string></string>
+                <key>PlistPath</key>
+                <string>Contents/Info.plist</string>
+            </dict>
+            
+            <!-- NootedBlue for Intel Graphics -->
+            <dict>
+                <key>Arch</key>
+                <string>Any</string>
+                <key>BundlePath</key>
+                <string>NootedBlue.kext</string>
+                <key>Comment</key>
+                <string>Intel iGPU patches for Ice Lake+ (Raptor Lake support)</string>
+                <key>Enabled</key>
+                <true/>
+                <key>ExecutablePath</key>
+                <string>Contents/MacOS/NootedBlue</string>
+                <key>MaxKernel</key>
+                <string></string>
+                <key>MinKernel</key>
+                <string>22.0.0</string>
+                <key>PlistPath</key>
+                <string>Contents/Info.plist</string>
+            </dict>
+        </array>
+        
+        <!-- Kernel Quirks -->
+        <key>Quirks</key>
+        <dict>
+            <key>AppleXcpmCfgLock</key>
+            <true/>
+            <key>DisableIoMapper</key>
+            <false/>
+            <key>DisableLinkeditJettison</key>
+            <true/>
+            <key>PowerTimeoutKernelPanic</key>
+            <true/>
+            <key>XhciPortLimit</key>
+            <false/>
+        </dict>
+    </dict>
+    
+    <!-- =============================================== -->
+    <!-- NVRAM Section -->
+    <!-- =============================================== -->
+    <key>NVRAM</key>
+    <dict>
+        <key>Add</key>
+        <dict>
+            <key>7C436110-AB2A-4BBB-A880-FE41995C9F82</key>
+            <dict>
+                <!-- Boot Arguments -->
+                <key>boot-args</key>
+                <string>-v keepsyms=1 debug=0x100 alcid=1</string>
+                <!-- 
+                    Optional debug args (remove for production):
+                    -nbluedbg     Enable NootedBlue debugging
+                    -liludbgall   Enable all Lilu debugging
+                -->
+                
+                <!-- Prev-Lang:Kbd -->
+                <key>prev-lang:kbd</key>
+                <string>en-US:0</string>
+            </dict>
+        </dict>
+    </dict>
+</dict>
+</plist>
