@@ -38,11 +38,11 @@ Updated the ACPI patch to use a more specific 15-byte pattern that includes uniq
 
 | Bytes | Meaning | Description |
 |-------|---------|-------------|
-| `5b 27` | Release opcode | ACPI bytecode for releasing a mutex |
-| `5c 57 57 4d 54` | `\WWMT` | Mutex name unique to this context |
-| `14 49 05` | Method opcode | Method definition with package length |
-| `5f 4f 46 46` | `_OFF` | Method name to be renamed |
-| `08` | Serialized flag | Method attributes |
+| `5b 27` | Release opcode | ACPI extended opcode for releasing a mutex |
+| `5c 57 57 4d 54` | `\WWMT` | Mutex name (unique to PEGP power management context) |
+| `14 49 05` | Method opcode | Method definition with package length (0x549 bytes) |
+| `5f 4f 46 46` | `_OFF` | Method name to be renamed to XOFF |
+| `08` | Serialized flag | Method attributes (Serialized, 0 arguments) |
 
 ### Why This Works
 
@@ -55,14 +55,18 @@ Updated the ACPI patch to use a more specific 15-byte pattern that includes uniq
 
 ### File Locations
 - **Source ACPI**: `SysReport/ACPI/SSDT-7.aml` (42,471 bytes)
-- **Decompiled**: `DecompiledACPI/ssdt10.dsl` (line 3415)
+- **Decompiled**: `DecompiledACPI/ssdt10.dsl` (corresponds to SSDT-7.aml, line 3415)
 - **Device Path**: `\_SB.PC00.PEG1.PEGP`
+- **Pattern Location**: Offset 0x5880 in SSDT-7.aml
 
 ### Pattern Verification
 ```bash
-# Verify pattern exists exactly once
-hexdump -C SysReport/ACPI/SSDT-7.aml | grep "5b 27 5c 57 57 4d 54 14  49 05 5f 4f 46 46 08"
-# Output: 00005880  5b 27 5c 57 57 4d 54 14  49 05 5f 4f 46 46 08 70
+# Verify pattern exists exactly once in SSDT-7.aml
+hexdump -C SysReport/ACPI/SSDT-7.aml | grep "5b 27 5c 57 57 4d 54 14"
+# Output shows pattern at offset 0x5880:
+# 00005880  5b 27 5c 57 57 4d 54 14  49 05 5f 4f 46 46 08 70
+#           |--Release \WWMT--|Method|_OFF name  |attr|
+#           (The double space is hexdump formatting for 8-byte groups)
 ```
 
 ### Config.plist Entry
