@@ -203,6 +203,10 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _PS0 to XPS0 in _SB.PC00.PEG1.PEGP</string>
 				<key>Count</key>
@@ -239,6 +243,10 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _PS3 to XPS3 in _SB.PC00.PEG1.PEGP</string>
 				<key>Count</key>
@@ -275,6 +283,10 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _ON to XON in _SB.PC00.PEG1.PEGP</string>
 				<key>Count</key>
@@ -311,6 +323,10 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _OFF to XOFF in _SB.PC00.PEG1.PEGP</string>
 				<key>Count</key>
@@ -347,6 +363,10 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
 				<string>Rename _STA to XSTA in _SB.PC00.PEG1.PEGP</string>
 				<key>Count</key>
@@ -388,7 +408,7 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>Rename _STA→XSTA in \_SB_.PC00.LPCB.PS2K (DSDT)</string>
+				<string>Rename _STA to XSTA in _SB.PC00.LPCB.PS2K (DSDT)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
@@ -998,6 +1018,8 @@
 			<data>
 			/////wAAAAAAAAAAAAAAAA==
 			</data>
+			<key>DummyPowerManagement</key>
+			<false/>
 			<key>MaxKernel</key>
 			<string></string>
 			<key>MinKernel</key>
