@@ -383,39 +383,34 @@
 				</data>
 			</dict>
 			<dict>
+				<key>Base</key>
+				<string>\_SB_.PC00.LPCB.PS2K</string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
 				<key>Comment</key>
-				<string>Rename _STA to XSTA in _SB.PC00.LPCB.PS2K</string>
+				<string>Rename _STA→XSTA in \_SB_.PC00.LPCB.PS2K (DSDT)</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>
-				QVRLMzAwMQhfQ0lEDEHQAwsUC19TVEE=
-				</data>
+				<data>X1NUQQ==</data>
+				<key>Replace</key>
+				<data>WFNUQQ==</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>OemTableId</key>
-				<data>
-				</data>
-				<key>Replace</key>
-				<data>
-				QVRLMzAwMQhfQ0lEDEHQAwsUC1hTVEE=
-				</data>
+				<data></data>
 				<key>ReplaceMask</key>
-				<data>
-				</data>
+				<data></data>
 				<key>Skip</key>
 				<integer>0</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data>
-				RFNEVA==
-				</data>
+				<data>RFNEVA==</data>
 			</dict>
 		</array>
 		<key>Quirks</key>
