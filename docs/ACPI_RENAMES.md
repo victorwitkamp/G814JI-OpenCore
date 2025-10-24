@@ -12,6 +12,8 @@ Use ACPI binary renames to rename the existing methods before our SSDT patches d
 
 ## Required ACPI Renames
 
+**UPDATE (2025-10-24)**: The _OFF rename has been updated to use a more specific byte pattern to prevent accidentally renaming other _OFF methods in the system. See the detailed explanation in section 4 below.
+
 ### For SSDT-DGPU_v4 (Disable NVIDIA GPU)
 
 Add the following 5 binary patches to rename the original power management methods in `\_SB.PC00.PEG1.PEGP`:
@@ -62,17 +64,24 @@ OemTableId: 5367506567
 
 #### 4. Rename _OFF to XOFF
 
+**IMPORTANT**: This patch uses a more specific pattern to ensure it only renames the _OFF method in the PEGP device and not other _OFF methods throughout the system.
+
 ```
 Comment: Rename _OFF to XOFF in _SB.PC00.PEG1.PEGP
-Find: 5F 4F 46 46
-Replace: 58 4F 46 46
+Find: 5B 27 5C 57 57 4D 54 14 49 05 5F 4F 46 46 08
+Replace: 5B 27 5C 57 57 4D 54 14 49 05 58 4F 46 46 08
 TableSignature: 53534454
-OemTableId: 5367506567
 ```
 
 **Hex explanation:**
-- `5F 4F 46 46` = "_OFF" in ASCII
-- `58 4F 46 46` = "XOFF" in ASCII
+- `5B 27` = Release opcode (ACPI bytecode)
+- `5C 57 57 4D 54` = "\WWMT" (mutex name unique to PEGP context)
+- `14 49 05` = Method opcode with package length
+- `5F 4F 46 46` = "_OFF" in ASCII → `58 4F 46 46` = "XOFF" in ASCII
+- `08` = Serialized flag
+
+**Why this pattern is specific:**
+The generic `5F 4F 46 46` pattern would match ANY _OFF method in the SSDT tables, potentially causing incorrect renames. This longer pattern includes the Release(\WWMT) instruction and method signature that is unique to the PEGP device's _OFF method, ensuring only the correct method is renamed.
 
 #### 5. Rename _STA to XSTA
 
@@ -208,15 +217,15 @@ Add these patches to your `config.plist` under `ACPI -> Patch` section:
             <key>Enabled</key>
             <true/>
             <key>Find</key>
-            <data>X09GRg==</data>
+            <data>WydcV1dNVBRJBV9PRkYI</data>
             <key>Limit</key>
             <integer>0</integer>
             <key>Mask</key>
             <data></data>
             <key>OemTableId</key>
-            <data>U2dQZWc=</data>
+            <data></data>
             <key>Replace</key>
-            <data>WE9GRg==</data>
+            <data>WydcV1dNVBRJBVhPRkYI</data>
             <key>ReplaceMask</key>
             <data></data>
             <key>Skip</key>
@@ -295,8 +304,8 @@ For easy copy-paste, here are the base64-encoded values:
 | "XPS3" | Replace | `WFBTMw==` |
 | "_ON_" | Find | `X09OXw==` |
 | "XON_" | Replace | `WE9OXw==` |
-| "_OFF" | Find | `X09GRg==` |
-| "XOFF" | Replace | `WE9GRg==` |
+| "_OFF specific pattern" | Find | `WydcV1dNVBRJBV9PRkYI` |
+| "XOFF specific pattern" | Replace | `WydcV1dNVBRJBVhPRkYI` |
 | "_STA" (PEGP) | Find | `X1NUQQ==` |
 | "XSTA" (PEGP) | Replace | `WFNUQQ==` |
 | "SSDT" | TableSignature | `U1NEVA==` |
