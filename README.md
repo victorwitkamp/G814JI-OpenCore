@@ -2,7 +2,7 @@
 
 **Current macOS version:** Ventura (13) → Sequoia (15.1)
 
-**Current OpenCore version:** 1.0.3
+**Current OpenCore version:** 1.0.5 (DEBUG)
 
 **BIOS Version:** 331
 
