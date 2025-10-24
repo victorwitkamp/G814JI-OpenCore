@@ -1,92 +1,50 @@
 /*
- * SSDT-DGPU: Properly Disable NVIDIA Discrete GPU
+ * Intel ACPI Component Architecture
+ * AML/ASL+ Disassembler version 20230628 (64-bit version)
+ * Copyright (c) 2000 - 2023 Intel Corporation
  * 
- * This SSDT properly disables the discrete GPU (NVIDIA RTX 4070) by:
- * 1. Renaming original _PS0, _PS3, _ON, _OFF, _STA methods (via config.plist ACPI patches)
- * 2. Implementing new versions that prevent the GPU from powering on
- * 3. Using _INI to ensure GPU is disabled at boot
+ * Disassembling to symbolic ASL+ operators
  *
- * REQUIRED ACPI Renames in config.plist:
- * - _SB.PC00.PEG1.PEGP._PS0 to XPS0
- * - _SB.PC00.PEG1.PEGP._PS3 to XPS3
- * - _SB.PC00.PEG1.PEGP._ON_ to XON_
- * - _SB.PC00.PEG1.PEGP._OFF to XOFF
- * - _SB.PC00.PEG1.PEGP._STA to XSTA
+ * Disassembly of SSDT-DGPU_v4.aml, Thu Oct 23 20:43:58 2025
  *
- * This approach ensures the GPU is both:
- * - Properly powered down (reduces power consumption and heat)
- * - Hidden from the operating system
- *
- * Based on:
- * - ACPI Specification v6.4
- * - Common OpenCore dGPU disable patterns
- * - Analysis of decompiled ACPI tables (DSDT and SSDTs)
- *
- * Device Path: \_SB.PC00.PEG1.PEGP (NVIDIA RTX 4070)
- *
- * Compilation: iasl -ve SSDT-DGPU_v4.dsl
+ * Original Table Header:
+ *     Signature        "SSDT"
+ *     Length           0x000000D6 (214)
+ *     Revision         0x02
+ *     Checksum         0xEB
+ *     OEM ID           "HACK"
+ *     OEM Table ID     "DGPUOFF"
+ *     OEM Revision     0x00000000 (0)
+ *     Compiler ID      "INTL"
+ *     Compiler Version 0x20230628 (539166248)
  */
 DefinitionBlock ("", "SSDT", 2, "HACK", "DGPUOFF", 0x00000000)
 {
     External (_SB_.PC00.PEG1.PEGP, DeviceObj)
-    External (_SB_.PC00.PEG1.PEGP.XSTA, MethodObj)    // Renamed original _STA
-    External (_SB_.PC00.PEG1.PEGP.XOFF, MethodObj)    // Renamed original _OFF
+    External (_SB_.PC00.PEG1.POFF, MethodObj)    // 0 Arguments
 
-    // Primary dGPU path: \_SB.PC00.PEG1.PEGP
     Scope (\_SB.PC00.PEG1.PEGP)
     {
-        // _INI: Initialize - Called during ACPI device initialization
-        // This ensures the GPU is powered off as early as possible
-        Method (_INI, 0, NotSerialized)
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
-            // Call the original _OFF method to properly power down the GPU
-            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
+            If (CondRefOf (\_SB.PC00.PEG1.POFF))
             {
-                \_SB.PC00.PEG1.PEGP.XOFF ()
+                \_SB.PC00.PEG1.POFF ()
             }
         }
 
-        // _PS0: Power State 0 (D0) - Full On
-        // Override this to prevent the device from being powered on
-        Method (_PS0, 0, NotSerialized)
+        Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
         {
-            // Do nothing - prevents the GPU from powering on
-        }
-
-        // _PS3: Power State 3 (D3) - Off
-        // This is the deepest sleep state, effectively powering off the device
-        Method (_PS3, 0, NotSerialized)
-        {
-            // Call the original _OFF method to properly power down
-            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
+            If (CondRefOf (\_SB.PC00.PEG1.POFF))
             {
-                \_SB.PC00.PEG1.PEGP.XOFF ()
+                \_SB.PC00.PEG1.POFF ()
             }
         }
 
-        // _OFF: Power Off
-        // Call the original _OFF to ensure proper power down
-        Method (_OFF, 0, NotSerialized)
-        {
-            If (CondRefOf (\_SB.PC00.PEG1.PEGP.XOFF))
-            {
-                \_SB.PC00.PEG1.PEGP.XOFF ()
-            }
-        }
-
-        // _ON: Power On  
-        // Override to prevent powering on
-        Method (_ON, 0, NotSerialized)
-        {
-            // Do nothing - prevents the GPU from powering on
-        }
-
-        // _STA: Status
-        // Returns 0 to indicate the device is not present
-        // This hides the device from the operating system
-        Method (_STA, 0, NotSerialized)
+        Method (_STA, 0, NotSerialized)  // _STA: Status
         {
             Return (Zero)
         }
     }
 }
+
