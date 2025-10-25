@@ -13,10 +13,11 @@
 ## 🆕 macOS Sequoia Graphics Configuration
 
 For Intel Graphics (NootedBlue) setup on macOS Sequoia, see:
-- **📖 [Complete NootedBlue Guide](NOOTEDBLUE_README.md)** - Start here for navigation
-- **🚀 [Quick Start Guide](NOOTEDBLUE_QUICKSTART.md)** - Fast setup (5 minutes)
-- **📊 [Full Analysis](NOOTEDBLUE_ANALYSIS.md)** - Detailed technical information
-- **✅ [Action Items](NOOTEDBLUE_ACTION_ITEMS.md)** - Configuration checklist
+- **📖 [Complete NootedBlue Guide](docs/NootedBlue/NOOTEDBLUE_README.md)** - Start here for navigation
+- **🚀 [Quick Start Guide](docs/NootedBlue/NOOTEDBLUE_QUICKSTART.md)** - Fast setup (5 minutes)
+- **📊 [Full Analysis](docs/NootedBlue/NOOTEDBLUE_ANALYSIS.md)** - Detailed technical information
+- **✅ [Action Items](docs/NootedBlue/NOOTEDBLUE_ACTION_ITEMS.md)** - Configuration checklist
+- **🔧 [VRAM Fix](docs/NootedBlue/FIX_SUMMARY.md)** - Fix for "only 15mb memory" issue
 
 **TL;DR**: Use `NootedBlue.kext macosx15.1 2024-11-14` (already installed) with additional DeviceProperties from the guides.
 
