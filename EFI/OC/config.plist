@@ -554,16 +554,31 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
+				<!-- Device Identification -->
 				<key>device-id</key>
-				<data>XAoAAA==</data>  <!-- 0x8A5C -->
+				<data>XAoAAA==</data>  <!-- 0x8A5C - Ice Lake spoofed device ID -->
 
 				<key>AAPL,ig-platform-id</key>
-				<data>AABYmA==</data>  <!-- 0x9A580000 -->
+				<data>AABYmA==</data>  <!-- 0x9A580000 - Raptor Lake mobile framebuffer -->
 
+				<!-- Model Name -->
 				<key>model</key>
 				<string>Intel Iris Xe Graphics</string>
-			</dict>
 
+				<!-- Optional: Force Enable Features -->
+				<key>enable-metal</key>
+				<integer>1</integer>
+
+				<!-- Memory Configuration -->
+				<key>framebuffer-patch-enable</key>
+				<integer>1</integer>
+
+				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data>  <!-- 19MB stolen memory -->
+
+				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data>  <!-- 9MB framebuffer memory -->
+			</dict>
 		</dict>
 		<key>Delete</key>
 		<dict/>
