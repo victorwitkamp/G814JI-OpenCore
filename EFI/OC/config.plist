@@ -565,6 +565,10 @@
 				<key>model</key>
 				<string>Intel Iris Xe Graphics</string>
 
+				<!-- Slot Name -->
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+
 				<!-- Optional: Force Enable Features -->
 				<key>enable-metal</key>
 				<integer>1</integer>
@@ -574,7 +578,7 @@
 				<integer>1</integer>
 
 				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>  <!-- 19MB stolen memory -->
+				<data>AAAACA==</data>  <!-- 128MB stolen memory - matches NootedBlue detection -->
 
 				<key>framebuffer-fbmem</key>
 				<data>AACQAA==</data>  <!-- 9MB framebuffer memory -->

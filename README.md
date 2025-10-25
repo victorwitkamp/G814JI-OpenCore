@@ -13,10 +13,11 @@
 ## 🆕 macOS Sequoia Graphics Configuration
 
 For Intel Graphics (NootedBlue) setup on macOS Sequoia, see:
-- **📖 [Complete NootedBlue Guide](NOOTEDBLUE_README.md)** - Start here for navigation
-- **🚀 [Quick Start Guide](NOOTEDBLUE_QUICKSTART.md)** - Fast setup (5 minutes)
-- **📊 [Full Analysis](NOOTEDBLUE_ANALYSIS.md)** - Detailed technical information
-- **✅ [Action Items](NOOTEDBLUE_ACTION_ITEMS.md)** - Configuration checklist
+- **📖 [Complete NootedBlue Guide](docs/NootedBlue/NOOTEDBLUE_README.md)** - Start here for navigation
+- **🚀 [Quick Start Guide](docs/NootedBlue/NOOTEDBLUE_QUICKSTART.md)** - Fast setup (5 minutes)
+- **📊 [Full Analysis](docs/NootedBlue/NOOTEDBLUE_ANALYSIS.md)** - Detailed technical information
+- **✅ [Action Items](docs/NootedBlue/NOOTEDBLUE_ACTION_ITEMS.md)** - Configuration checklist
+- **🔧 [VRAM Fix](docs/NootedBlue/FIX_SUMMARY.md)** - Fix for "only 15mb memory" issue
 
 **TL;DR**: Use `NootedBlue.kext macosx15.1 2024-11-14` (already installed) with additional DeviceProperties from the guides.
 
@@ -40,7 +41,7 @@ For Intel Graphics (NootedBlue) setup on macOS Sequoia, see:
 CPU	- 13th Gen Intel(R) Core(TM) i9-13980HX
 
 iGPU - Intel(R) UHD Graphics (NootedBlue with proper Raptor Lake device ID 0xA788)
-  - **For macOS Sequoia**: Use NootedBlue.kext version from `2024-11-14` (see [NootedBlue Analysis](NOOTEDBLUE_ANALYSIS.md))
+  - **For macOS Sequoia**: Use NootedBlue.kext version from `2024-11-14` (see [NootedBlue Analysis](docs/NootedBlue/NOOTEDBLUE_ANALYSIS.md))
 
 Ethernet - Realtek PCIe GbE Family Controller
 
@@ -81,8 +82,8 @@ This system uses **NootedBlue** kext for Intel Raptor Lake graphics support on m
 **Quick Start**:
 - ✅ **Recommended Version**: `NootedBlue.kext macosx15.1 2024-11-14` (latest, most stable)
 - 📁 **Location**: `NootedBlue/` folder contains 4 versions for comparison
-- 📖 **Full Guide**: See [NOOTEDBLUE_ANALYSIS.md](NOOTEDBLUE_ANALYSIS.md) for detailed comparison and OpenCore configuration
-- ⚡ **Quick Reference**: See [NOOTEDBLUE_QUICKSTART.md](NOOTEDBLUE_QUICKSTART.md) for fast setup
+- 📖 **Full Guide**: See [NOOTEDBLUE_ANALYSIS.md](docs/NootedBlue/NOOTEDBLUE_ANALYSIS.md) for detailed comparison and OpenCore configuration
+- ⚡ **Quick Reference**: See [NOOTEDBLUE_QUICKSTART.md](docs/NootedBlue/NOOTEDBLUE_QUICKSTART.md) for fast setup
 
 **Key Points**:
 1. Raptor Lake iGPU (0xA788) is spoofed as Ice Lake (0x8A5C)
