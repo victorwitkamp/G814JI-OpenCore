@@ -118,7 +118,7 @@ Add or verify these properties for Raptor Lake iGPU:
     <integer>1</integer>
     
     <key>framebuffer-stolenmem</key>
-    <data>AAAwAQ==</data>  <!-- 19MB stolen memory -->
+    <data>AAAACA==</data>  <!-- 128MB stolen memory - matches NootedBlue detection -->
     
     <key>framebuffer-fbmem</key>
     <data>AACQAA==</data>  <!-- 9MB framebuffer memory -->
@@ -258,7 +258,7 @@ For best performance with NootedBlue on Sequoia:
 1. **Enable Metal**: Ensure Metal support is enabled (included in recommended config)
 2. **Optimize Power**: Use CPUFriend kext for better power management (optional)
 3. **Monitor temps**: Use Intel Power Gadget or HWiNFO to monitor iGPU usage and temps
-4. **VRAM allocation**: The recommended 19MB stolen + 9MB framebuffer is optimal for Raptor Lake
+4. **VRAM allocation**: The recommended 128MB stolen + 9MB framebuffer matches the BIOS DVMT pre-allocation and provides proper VRAM reporting in macOS
 
 ## Conclusion
 
@@ -274,5 +274,5 @@ The recommended OpenCore settings ensure proper device spoofing and feature enab
 ---
 
 *Document created: 2025-10-14*  
-*Last updated: 2025-10-14*  
-*System: Asus G814JI | OpenCore 1.0.3 | Target: macOS Sequoia 15.1*
+*Last updated: 2025-10-25*  
+*System: Asus G814JI | OpenCore 1.0.5 | Target: macOS Sequoia 15.1*
