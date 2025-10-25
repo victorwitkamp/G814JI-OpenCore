@@ -12,7 +12,7 @@ Use ACPI binary renames to rename the existing methods before our SSDT patches d
 
 ## Required ACPI Renames
 
-**UPDATE (2025-10-24)**: The _OFF rename has been updated to use a more specific byte pattern to prevent accidentally renaming other _OFF methods in the system. See the detailed explanation in section 4 below.
+**UPDATE (2025-10-25)**: The ACPI renames have been corrected to use the proper OemTableId "Opt2Tabl" (not "SgPeg") based on the actual decompiled ACPI tables from this system. The OemTableId ensures renames only apply to SSDT10.
 
 ### For SSDT-DGPU_v4 (Disable NVIDIA GPU)
 
@@ -25,14 +25,14 @@ Comment: Rename _PS0 to XPS0 in _SB.PC00.PEG1.PEGP
 Find: 5F 50 53 30
 Replace: 58 50 53 30
 TableSignature: 53534454
-OemTableId: 5367506567
+OemTableId: 4F70743254616C62
 ```
 
 **Hex explanation:**
 - `5F 50 53 30` = "_PS0" in ASCII
 - `58 50 53 30` = "XPS0" in ASCII
 - `53534454` = "SSDT" in reverse byte order
-- `5367506567` = "SgPeg" in ASCII (SSDT10's OEM Table ID)
+- `4F70743254616C62` = "Opt2Tabl" in ASCII (SSDT10's OEM Table ID)
 
 #### 2. Rename _PS3 to XPS3
 
@@ -41,7 +41,7 @@ Comment: Rename _PS3 to XPS3 in _SB.PC00.PEG1.PEGP
 Find: 5F 50 53 33
 Replace: 58 50 53 33
 TableSignature: 53534454
-OemTableId: 5367506567
+OemTableId: 4F70743254616C62
 ```
 
 **Hex explanation:**
@@ -55,7 +55,7 @@ Comment: Rename _ON to XON in _SB.PC00.PEG1.PEGP
 Find: 5F 4F 4E 5F
 Replace: 58 4F 4E 5F
 TableSignature: 53534454
-OemTableId: 5367506567
+OemTableId: 4F70743254616C62
 ```
 
 **Hex explanation:**
@@ -64,24 +64,23 @@ OemTableId: 5367506567
 
 #### 4. Rename _OFF to XOFF
 
-**IMPORTANT**: This patch uses a more specific pattern to ensure it only renames the _OFF method in the PEGP device and not other _OFF methods throughout the system.
+**IMPORTANT**: This patch targets the _OFF method in the PEGP device. Since we're using the specific OemTableId "Opt2Tabl" for SSDT10, a simple pattern is sufficient.
 
 ```
 Comment: Rename _OFF to XOFF in _SB.PC00.PEG1.PEGP
-Find: 5B 27 5C 57 57 4D 54 14 49 05 5F 4F 46 46 08
-Replace: 5B 27 5C 57 57 4D 54 14 49 05 58 4F 46 46 08
+Find: 5F 4F 46 46
+Replace: 58 4F 46 46
 TableSignature: 53534454
+OemTableId: 4F70743254616C62
 ```
 
 **Hex explanation:**
-- `5B 27` = Release opcode (ACPI bytecode)
-- `5C 57 57 4D 54` = "\WWMT" (mutex name unique to PEGP context)
-- `14 49 05` = Method opcode with package length
-- `5F 4F 46 46` = "_OFF" in ASCII → `58 4F 46 46` = "XOFF" in ASCII
-- `08` = Serialized flag
+- `5F 4F 46 46` = "_OFF" in ASCII
+- `58 4F 46 46` = "XOFF" in ASCII
+- `4F70743254616C62` = "Opt2Tabl" in ASCII (SSDT10's OEM Table ID)
 
 **Why this pattern is specific:**
-The generic `5F 4F 46 46` pattern would match ANY _OFF method in the SSDT tables, potentially causing incorrect renames. This longer pattern includes the Release(\WWMT) instruction and method signature that is unique to the PEGP device's _OFF method, ensuring only the correct method is renamed.
+By using the OemTableId "Opt2Tabl", we ensure the rename only applies to SSDT10, which is the specific table containing the PEG1.PEGP scope and its power management methods.
 
 #### 5. Rename _STA to XSTA
 
@@ -90,7 +89,7 @@ Comment: Rename _STA to XSTA in _SB.PC00.PEG1.PEGP
 Find: 5F 53 54 41
 Replace: 58 53 54 41
 TableSignature: 53534454
-OemTableId: 5367506567
+OemTableId: 4F70743254616C62
 ```
 
 **Hex explanation:**
@@ -145,7 +144,7 @@ Add these patches to your `config.plist` under `ACPI -> Patch` section:
             <key>Mask</key>
             <data></data>
             <key>OemTableId</key>
-            <data>U2dQZWc=</data>
+            <data>T3B0MlRhYmw=</data>
             <key>Replace</key>
             <data>WFBTMA==</data>
             <key>ReplaceMask</key>
@@ -217,15 +216,15 @@ Add these patches to your `config.plist` under `ACPI -> Patch` section:
             <key>Enabled</key>
             <true/>
             <key>Find</key>
-            <data>WydcV1dNVBRJBV9PRkYI</data>
+            <data>X09GRg==</data>
             <key>Limit</key>
             <integer>0</integer>
             <key>Mask</key>
             <data></data>
             <key>OemTableId</key>
-            <data></data>
+            <data>T3B0MlRhYmw=</data>
             <key>Replace</key>
-            <data>WydcV1dNVBRJBVhPRkYI</data>
+            <data>WE9GRg==</data>
             <key>ReplaceMask</key>
             <data></data>
             <key>Skip</key>
@@ -304,12 +303,12 @@ For easy copy-paste, here are the base64-encoded values:
 | "XPS3" | Replace | `WFBTMw==` |
 | "_ON_" | Find | `X09OXw==` |
 | "XON_" | Replace | `WE9OXw==` |
-| "_OFF specific pattern" | Find | `WydcV1dNVBRJBV9PRkYI` |
-| "XOFF specific pattern" | Replace | `WydcV1dNVBRJBVhPRkYI` |
+| "_OFF" | Find | `X09GRg==` |
+| "XOFF" | Replace | `WE9GRg==` |
 | "_STA" (PEGP) | Find | `X1NUQQ==` |
 | "XSTA" (PEGP) | Replace | `WFNUQQ==` |
 | "SSDT" | TableSignature | `U1NEVA==` |
-| "SgPeg" | OemTableId | `U2dQZWc=` |
+| "Opt2Tabl" | OemTableId | `T3B0MlRhYmw=` |
 | "DSDT" | TableSignature | `RFNEVA==` |
 | PS2K _STA context | Find | `QVRLMzAwMQhfQ0lEDEHQAws=` |
 | PS2K XSTA replace | Replace | `QVRLMzAwMQhfQ0lEDEHQAwsUC1hTVEE=` |
@@ -343,7 +342,7 @@ ACPI does not allow redefining methods that already exist in the namespace. When
 ### Why These Specific Patterns
 
 - **TableSignature**: Ensures we only patch SSDT or DSDT tables, not other ACPI tables
-- **OemTableId**: For GPU methods, we target only SSDT10 (OEM Table ID "SgPeg") to avoid accidentally renaming other _STA, _PS0, etc. methods in the system
+- **OemTableId**: For GPU methods, we target only SSDT10 (OEM Table ID "Opt2Tabl") to avoid accidentally renaming other _STA, _PS0, etc. methods in the system
 - **Context in Find pattern**: For PS2K, we include the device's Hardware ID to ensure we only rename the specific _STA method we want
 
 ## References

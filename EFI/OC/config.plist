@@ -224,7 +224,7 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
-				U2dQZWc=
+				T3B0MlRhYmw=
 				</data>
 				<key>Replace</key>
 				<data>
@@ -264,7 +264,7 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
-				U2dQZWc=
+				T3B0MlRhYmw=
 				</data>
 				<key>Replace</key>
 				<data>
@@ -304,7 +304,7 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
-				U2dQZWc=
+				T3B0MlRhYmw=
 				</data>
 				<key>Replace</key>
 				<data>
@@ -335,7 +335,7 @@
 				<true/>
 				<key>Find</key>
 				<data>
-				WydcV1dNVBRJBV9PRkYI
+				X09GRg==
 				</data>
 				<key>Limit</key>
 				<integer>0</integer>
@@ -344,11 +344,11 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
-				U2dQZWc=
+				T3B0MlRhYmw=
 				</data>
 				<key>Replace</key>
 				<data>
-				WydcV1dNVBRJBVhPRkYI
+				WE9GRg==
 				</data>
 				<key>ReplaceMask</key>
 				<data>
@@ -372,7 +372,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				X1NUQQ==
@@ -384,7 +384,7 @@
 				</data>
 				<key>OemTableId</key>
 				<data>
-				U2dQZWc=
+				T3B0MlRhYmw=
 				</data>
 				<key>Replace</key>
 				<data>
@@ -555,10 +555,15 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>device-id</key>
-				<data>
-				iKcAAA==
-				</data>
+				<data>XAoAAA==</data>  <!-- 0x8A5C -->
+
+				<key>AAPL,ig-platform-id</key>
+				<data>AABYmA==</data>  <!-- 0x9A580000 -->
+
+				<key>model</key>
+				<string>Intel Iris Xe Graphics</string>
 			</dict>
+
 		</dict>
 		<key>Delete</key>
 		<dict/>
@@ -1532,7 +1537,7 @@
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>67</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Entries</key>
 		<array>
@@ -1794,8 +1799,6 @@
 			<dict>
 				<key>#INFO (prev-lang:kbd)</key>
 				<string>en:252 (ABC), set 656e3a323532</string>
-				<key>#boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 igfxfw=2 igfxonln=1 -wegdbg -wegtree -igfxdump -liludump</string>
 				<key>ForceDisplayRotationInEFI</key>
 				<integer>0</integer>
 				<key>SystemAudioVolume</key>
@@ -1803,7 +1806,7 @@
 				Rg==
 				</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling</string>
+				<string>-vi2c-force-polling -v keepsyms=1 debug=0x100 igfxonln=1 -liludbg -nbdbg -nbluedbg -liludbgall</string>
 				<key>csr-active-config</key>
 				<data>
 				AAAAAA==
