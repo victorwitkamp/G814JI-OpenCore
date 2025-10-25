@@ -41,7 +41,7 @@ For Intel Graphics (NootedBlue) setup on macOS Sequoia, see:
 CPU	- 13th Gen Intel(R) Core(TM) i9-13980HX
 
 iGPU - Intel(R) UHD Graphics (NootedBlue with proper Raptor Lake device ID 0xA788)
-  - **For macOS Sequoia**: Use NootedBlue.kext version from `2024-11-14` (see [NootedBlue Analysis](NOOTEDBLUE_ANALYSIS.md))
+  - **For macOS Sequoia**: Use NootedBlue.kext version from `2024-11-14` (see [NootedBlue Analysis](docs/NootedBlue/NOOTEDBLUE_ANALYSIS.md))
 
 Ethernet - Realtek PCIe GbE Family Controller
 
