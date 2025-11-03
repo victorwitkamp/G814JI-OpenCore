@@ -555,32 +555,32 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<!-- Device Identification -->
-				<key>device-id</key>
-				<data>XAoAAA==</data>
+<!-- 				<key>device-id</key>
+				<data>XAoAAA==</data> -->
 				<!-- 0x8A5C - Ice Lake spoofed device ID -->
 
-				<key>AAPL,ig-platform-id</key>
-				<data>AABYmA==</data>
+<!-- 				<key>AAPL,ig-platform-id</key>
+				<data>AABYmA==</data> -->
 				<!-- 0x9A580000 - Raptor Lake mobile framebuffer -->
 
 				<!-- Model Name -->
-				<key>model</key>
-				<string>Intel Iris Xe Graphics</string>
+<!-- 				<key>model</key>
+				<string>Intel Iris Xe Graphics</string> -->
 
 				<!-- Optional: Force Enable Features -->
-				<key>enable-metal</key>
-				<integer>1</integer>
+<!-- 				<key>enable-metal</key>
+				<integer>1</integer> -->
 
 				<!-- Memory Configuration -->
-				<key>framebuffer-patch-enable</key>
-				<integer>1</integer>
+<!-- 				<key>framebuffer-patch-enable</key>
+				<integer>1</integer> -->
 
-				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
+<!-- 				<key>framebuffer-stolenmem</key>
+				<data>AAAwAQ==</data> -->
 				<!-- 19MB stolen memory -->
 
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
+<!-- 				<key>framebuffer-fbmem</key>
+				<data>AACQAA==</data> -->
 				<!-- 9MB framebuffer memory -->
 			</dict>
 		</dict>
@@ -671,7 +671,7 @@
 				<key>Comment</key>
 				<string>Video patches</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/NootedBlue</string>
 				<key>MaxKernel</key>
@@ -998,6 +998,24 @@
 				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>XePCI.kext</string>
+				<key>Comment</key>
+				<string></string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/XePCI</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -1825,7 +1843,7 @@
 				Rg==
 				</data>
 				<key>boot-args</key>
-				<string>-vi2c-force-polling -v keepsyms=1 debug=0x100 igfxonln=1 -liludbg -nbdbg -nbluedbg -liludbgall</string>
+				<string>-v keepsyms=1 debug=0x100 -vi2c-force-polling igfxonln=1</string>
 				<key>csr-active-config</key>
 				<data>
 				AAAAAA==
