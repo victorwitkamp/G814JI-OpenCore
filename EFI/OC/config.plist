@@ -90,9 +90,17 @@
 				<key>Comment</key>
 				<string>DGPU</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>SSDT-DGPU_v4.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>DGPU spoof: _STA 0x0F + _DSM class-code FFFFFFFF / IOName name #display; needs the _DSM to XDSM patch</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-DGPU_v5.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -439,6 +447,46 @@
 				<key>TableSignature</key>
 				<data>
 				RFNEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string>\_SB.PC00.PEG1.PEGP._DSM</string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Rename _DSM to XDSM in _SB.PC00.PEG1.PEGP (Base; the OEM Optimus _DSM, so SSDT-DGPU_v5 can define its own)</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				X0RTTQ==
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				T3B0MlRhYmw=
+				</data>
+				<key>Replace</key>
+				<data>
+				WERTTQ==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				U1NEVA==
 				</data>
 			</dict>
 		</array>
