@@ -110,6 +110,22 @@
 				<key>Path</key>
 				<string>SSDT-PS2K.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PNLF: _CID backlight for AppleBacklight (the brightness slider and keys); source SSDT-PNLF.dsl</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PNLF.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>fake EC under PC00.LPCB for AppleBusPowerController (firmware H_EC _STA = 0); source SSDT-EC.dsl</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-EC.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
