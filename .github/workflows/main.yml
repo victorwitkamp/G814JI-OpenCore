@@ -22,7 +22,7 @@ jobs:
         with:
           # IMPORTANT: set this to the exact OpenCore version you’re using
           # (ocvalidate must match your OC version)
-          opencore-version: "1.0.5"
+          opencore-version: "1.0.8"
           release: false   # (optional) leave true to use a release build
 
       - name: Run ocvalidate

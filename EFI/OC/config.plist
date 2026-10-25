@@ -2017,6 +2017,8 @@
 				<true/>
 				<key>Path</key>
 				<string>OpenVariableRuntimeDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2029,6 +2031,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenRuntime.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2041,6 +2045,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HfsPlus.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2053,6 +2059,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2065,6 +2073,8 @@
 				<false/>
 				<key>Path</key>
 				<string>AudioDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2077,6 +2087,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenPartitionDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2089,6 +2101,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenUsbKbDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2101,6 +2115,8 @@
 				<false/>
 				<key>Path</key>
 				<string>UsbMouseDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2113,6 +2129,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Ps2KeyboardDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2125,6 +2143,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Ps2MouseDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2137,6 +2157,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HiiDatabase.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2149,6 +2171,8 @@
 				<false/>
 				<key>Path</key>
 				<string>NvmExpressDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2161,6 +2185,8 @@
 				<false/>
 				<key>Path</key>
 				<string>XhciDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2173,6 +2199,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ExFatDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2185,6 +2213,8 @@
 				<false/>
 				<key>Path</key>
 				<string>CrScreenshotDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2197,6 +2227,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Ext4Dxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2209,6 +2241,8 @@
 				<false/>
 				<key>Path</key>
 				<string>DpcDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2221,6 +2255,8 @@
 				<false/>
 				<key>Path</key>
 				<string>SnpDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2233,6 +2269,8 @@
 				<false/>
 				<key>Path</key>
 				<string>MnpDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2245,6 +2283,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ArpDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2257,6 +2297,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Dhcp4Dxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2269,6 +2311,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Ip4Dxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2281,6 +2325,8 @@
 				<false/>
 				<key>Path</key>
 				<string>Udp4Dxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2293,6 +2339,8 @@
 				<false/>
 				<key>Path</key>
 				<string>TcpDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2305,6 +2353,8 @@
 				<false/>
 				<key>Path</key>
 				<string>DnsDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2317,6 +2367,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HttpDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2329,6 +2381,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HttpUtilitiesDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2341,6 +2395,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HttpBootDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2353,6 +2409,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2365,6 +2423,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ResetNvramEntry.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2377,6 +2437,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ToggleSipEntry.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2389,6 +2451,8 @@
 				<false/>
 				<key>Path</key>
 				<string>FirmwareSettingsEntry.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>Input</key>
