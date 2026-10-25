@@ -572,6 +572,24 @@
 			</dict>
 			<dict>
 				<key>Arch</key>
+				<string>x86_64</string>
+				<key>BundlePath</key>
+				<string>G814Amp.kext</string>
+				<key>Comment</key>
+				<string>G814JI CS35L41 speaker amps (SPI): switched on with AppleHDA's output (AutoEnable 1); manual steps via sysctl debug.g814amp.cmd</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/G814Amp</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
 				<string>SMCBatteryManager.kext</string>
@@ -1944,6 +1962,20 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
+				<key>HideVerbose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>Arguments</key>
+				<string></string>
+				<key>Comment</key>
+				<string>G814JI CS35L41 speaker amps up for the chime; Arguments: probe | gain=N</string>
+				<key>Enabled</key>
+				<true/>
+				<key>LoadEarly</key>
+				<false/>
+				<key>Path</key>
+				<string>G814AmpDxe.efi</string>
 				<key>HideVerbose</key>
 				<false/>
 			</dict>
