@@ -810,7 +810,7 @@
 				<key>BundlePath</key>
 				<string>itlwm.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Wi-Fi: replaced by AirportItlwm; re-enable (and disable AirportItlwm) to fall back to itlwm + HeliPort</string>
 				<key>Enabled</key>
 				<false/>
 				<key>ExecutablePath</key>
@@ -828,15 +828,15 @@
 				<key>BundlePath</key>
 				<string>AirportItlwm.kext</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Wi-Fi: laobamac AirportItlwm-Sequoia 2.4.0-alpha (bbe368e) on the stock Sequoia Wi-Fi stack; no root patch, no SIP change</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
-				<string></string>
+				<string>24.2.0</string>
 				<key>PlistPath</key>
 				<string>Contents/Info.plist</string>
 			</dict>
@@ -881,7 +881,7 @@
 				<key>Arch</key>
 				<string>x86_64</string>
 				<key>Comment</key>
-				<string></string>
+				<string>Wi-Fi: keep OFF (the laobamac AirportItlwm links against the stock IOSkywalkFamily)</string>
 				<key>Enabled</key>
 				<false/>
 				<key>Identifier</key>
