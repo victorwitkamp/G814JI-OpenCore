@@ -421,34 +421,56 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<!-- Device Identification -->
-				<key>device-id</key>
-				<data>XAoAAA==</data>
-				<!-- 0x8A5C - Ice Lake spoofed device ID -->
-
+				<key>AAPL,boot-display</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>AAPL,ig-platform-id</key>
-				<data>AABYmA==</data>
-				<!-- 0x9A580000 - Raptor Lake mobile framebuffer -->
-
-				<!-- Model Name -->
-				<key>model</key>
-				<string>Intel Iris Xe Graphics</string>
-
-				<!-- Optional: Force Enable Features -->
+				<data>
+				AABJmg==
+				</data>
+				<key>AAPL,slot-name</key>
+				<string>built-in</string>
+				<key>CsbProcModeSelect</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
+				<key>complete-modeset</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>device-id</key>
+				<data>
+				SZoAAA==
+				</data>
 				<key>enable-metal</key>
 				<integer>1</integer>
-
-				<!-- Memory Configuration -->
+				<key>force-online</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-fbmem</key>
+				<data>
+				AACQAA==
+				</data>
 				<key>framebuffer-patch-enable</key>
 				<integer>1</integer>
-
 				<key>framebuffer-stolenmem</key>
-				<data>AAAwAQ==</data>
-				<!-- 19MB stolen memory -->
-
-				<key>framebuffer-fbmem</key>
-				<data>AACQAA==</data>
-				<!-- 9MB framebuffer memory -->
+				<data>
+				AAAwAQ==
+				</data>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>model</key>
+				<string>Intel Iris Xe Graphics</string>
+				<key>rps-control</key>
+				<data>
+				AQAAAA==
+				</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -523,24 +545,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VirtualSMC</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>NootedBlue.kext</string>
-				<key>Comment</key>
-				<string>Video patches</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/NootedBlue</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -865,6 +869,24 @@
 				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AirportItlwm</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>NootedGreen.kext</string>
+				<key>Comment</key>
+				<string>Raptor Lake-HX iGPU (8086:A788) on Apple's Tiger Lake drivers</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/NootedGreen</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -1743,6 +1765,33 @@
 				<string>prev-lang:kbd</string>
 				<string>backlight-level</string>
 				<string>BootCampHD</string>
+				<string>ngreen-diag-dump</string>
+				<string>ngreen-ggc-diag</string>
+				<string>ngreen-diag-flag</string>
+				<string>ngreen-bdsm-diag</string>
+				<string>ngreen-fix-applied</string>
+				<string>ngreen-bdsm2-diag</string>
+				<string>ngreen-stage</string>
+				<string>ngreen-stage-ns</string>
+				<string>ngreen-hitmask</string>
+				<string>ngreen-routeok</string>
+				<string>ngreen-start-log</string>
+				<string>ngreen-configure-result</string>
+				<string>ngreen-register-result</string>
+				<string>ngreen-start-result</string>
+				<string>ngreen-ioaf-hitmask</string>
+				<string>ngreen-ioaf-routeok</string>
+				<string>ngreen-ioaf-log</string>
+				<string>ngreen-ioaf-result</string>
+				<string>ngreen-ioaf-config</string>
+				<string>ngreen-tglfb-patch</string>
+				<string>ngreen-build-serial</string>
+				<string>ngreen-cfg-flags</string>
+				<string>ngreen-iog-lifecycle</string>
+				<string>ngreen-v54w-info</string>
+				<string>ngreen-postret-info</string>
+				<string>ngreen-resetpath-info</string>
+				<string>ngreen-debug-flags</string>
 			</array>
 			<key>8BE4DF61-93CA-11D2-AA0D-00E098032B8C</key>
 			<array>
