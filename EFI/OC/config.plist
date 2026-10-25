@@ -1772,7 +1772,7 @@
 				Rg==
 				</data>
 				<key>boot-args</key>
-				<string>-vi2c-force-polling -v keepsyms=1 debug=0x100 igfxonln=1 -liludbg -nbdbg -nbluedbg -liludbgall</string>
+				<string>keepsyms=1 debug=0x100 IGLogLevel=0xF -ngreentglwithgfx msgbuf=725288 ngreen-dmc=adlp -ngreenv189 -allow3d -disablegfxfirmware -ngreenfullmtlcore liludump=150 alcid=22 alcverbs=1 ngreenv362=1</string>
 				<key>csr-active-config</key>
 				<data>
 				UwIAAA==
