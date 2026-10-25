@@ -57,6 +57,16 @@ GPU - NVIDIA GeForce RTX 4070 Laptop GPU (powered off by SSDT-DGPU_v5)
 
 iGPU - OpenGL apps (for example Photo Booth) crash in Apple's Tiger Lake OpenGL driver
 
+## Source code of the G814JI-specific parts
+
+| **Part** | **Source** | **Binary in this repository** |
+| -------- | ---------- | ----------------------------- |
+| NootedGreen.kext (iGPU) | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen), branch [`raptor-lake-hx`](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx): [pull request #23](https://github.com/sgiammori/NootedGreen/pull/23) to sgiammori/NootedGreen | An earlier development build. The branch is its cleaned-up rewrite; this binary is replaced by a build of the branch once that build has been tested on this laptop. |
+| VoodooGPIO (trackpad GPIO interrupts) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO): [pull request #19](https://github.com/VoodooI2C/VoodooGPIO/pull/19) to VoodooI2C/VoodooGPIO (Raptor Lake-S support) | A DEBUG development build made before the pull request's clean-up, inside [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1 (`e3ac3ed`, DEBUG), whose `IOPCIMatch` adds the Raptor Lake-S PCH's I2C controller (8086:7A4C). |
+| G814AmpDxe.efi (speaker amplifiers for the boot chime) | [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe) | An earlier development build; the repository holds the cleaned-up source. |
+| G814Amp.kext (speaker amplifiers in macOS) | not published yet | 0.2.0 |
+| IntelBTPatcher.kext 2.5.0 | upstream [OpenIntelWireless/IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) | Built from that commit (master; no release since 2.4.0). |
+
 ## Configuration
 ### Bios settings
 Advanced\ErP - Disabled
@@ -101,25 +111,28 @@ The `.dsl` sources of SSDT-DGPU_v5, SSDT-EC and SSDT-PNLF are in `EFI/OC/ACPI`.
 
 ### Kexts
 
-| **Kext** | **Version** | **Purpose** |
-| -------- | ----------- | ----------- |
-| Lilu | 1.7.2 (DEBUG) | Patch engine |
-| DebugEnhancer | 1.1.1 | Kernel debug output |
-| RestrictEvents | 1.1.6 | CPU brand string in About This Mac (`revcpu=1`) |
-| VirtualSMC, SMCProcessor, SMCBatteryManager | 1.3.8 | SMC emulation, CPU sensors, battery |
-| ECEnabler | 1.0.6 | Battery status from the EC |
-| NootedGreen | 1.0.0 | Raptor Lake-HX iGPU |
-| AppleALC | 1.9.8 | Audio (layout 22) |
-| G814Amp | 0.2.0 | CS35L41 speaker amplifiers |
-| USBToolBox + UTBMap | 1.1.1 / 1.2 | USB map |
-| IntelBluetoothFirmware | 2.4.0 | Bluetooth firmware upload |
-| IntelBTPatcher | 2.5.0 | Intel Bluetooth fixes, built from upstream master (the 2.4.0 release panics on Sequoia) |
-| BlueToolFixup | 2.7.2 | Bluetooth stack fixes for non-Apple controllers |
-| AirportItlwm | 2.4.0 | Wi-Fi (laobamac AirportItlwm-Sequoia) |
-| RealtekRTL8111 | 2.4.2 | Ethernet |
-| VoodooI2C (VoodooGPIO, VoodooI2CServices, VoodooInput), VoodooI2CHID | 2.9.1 | Trackpad |
-| VoodooPS2Controller, VoodooPS2Keyboard | 2.3.7 | PS/2 keyboard |
+| **Kext** | **Version** | **Purpose** | **Source** |
+| -------- | ----------- | ----------- | ---------- |
+| Lilu | 1.7.2 (DEBUG) | Patch engine | [acidanthera/Lilu](https://github.com/acidanthera/Lilu) |
+| DebugEnhancer | 1.1.1 | Kernel debug output | [acidanthera/DebugEnhancer](https://github.com/acidanthera/DebugEnhancer) |
+| RestrictEvents | 1.1.6 | CPU brand string in About This Mac (`revcpu=1`) | [acidanthera/RestrictEvents](https://github.com/acidanthera/RestrictEvents) |
+| VirtualSMC, SMCProcessor, SMCBatteryManager | 1.3.8 | SMC emulation, CPU sensors, battery | [acidanthera/VirtualSMC](https://github.com/acidanthera/VirtualSMC) |
+| ECEnabler | 1.0.6 | Battery status from the EC | [averycblack/ECEnabler](https://github.com/averycblack/ECEnabler) |
+| NootedGreen | 1.0.0 | Raptor Lake-HX iGPU | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx) (see [Source code](#source-code-of-the-g814ji-specific-parts)) |
+| AppleALC | 1.9.8 | Audio (layout 22) | [acidanthera/AppleALC](https://github.com/acidanthera/AppleALC) |
+| G814Amp | 0.2.0 | CS35L41 speaker amplifiers | not published yet |
+| USBToolBox + UTBMap | 1.1.1 / 1.2 | USB map | [USBToolBox/kext](https://github.com/USBToolBox/kext); the map is `UTBMap.kext/Contents/Info.plist` |
+| IntelBluetoothFirmware | 2.4.0 | Bluetooth firmware upload | [OpenIntelWireless/IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) v2.4.0 |
+| IntelBTPatcher | 2.5.0 | Intel Bluetooth fixes (the 2.4.0 release panics on Sequoia) | built from [IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) (master, not released) |
+| BlueToolFixup | 2.7.2 | Bluetooth stack fixes for non-Apple controllers | [acidanthera/BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) |
+| AirportItlwm | 2.4.0 | Wi-Fi | [laobamac/itlwm](https://github.com/laobamac/itlwm/releases/tag/v2.4.0-alpha) v2.4.0-alpha (`bbe368e`, the AirportItlwm-Sequoia build) |
+| RealtekRTL8111 | 2.4.2 | Ethernet | [Mieze/RTL8111_driver_for_OS_X](https://github.com/Mieze/RTL8111_driver_for_OS_X) |
+| VoodooI2C (VoodooI2CServices, VoodooInput), VoodooI2CHID | 2.9.1 | Trackpad | [VoodooI2C/VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1, [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2CHID) |
+| VoodooGPIO (inside VoodooI2C.kext) | 1.1 | GPIO interrupts for the trackpad (Raptor Lake-S PCH) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO) (see [Source code](#source-code-of-the-g814ji-specific-parts)) |
+| VoodooPS2Controller, VoodooPS2Keyboard | 2.3.7 | PS/2 keyboard | [acidanthera/VoodooPS2](https://github.com/acidanthera/VoodooPS2) |
 
 ### UEFI drivers
 
-OpenRuntime, HfsPlus, OpenCanopy, G814AmpDxe (enables the speaker amplifiers for the boot chime), AudioDxe, ResetNvramEntry.
+OpenRuntime, HfsPlus, OpenCanopy, AudioDxe, ResetNvramEntry ([acidanthera/OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) 1.0.8)
+and G814AmpDxe (enables the speaker amplifiers for the boot chime; [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe)).
+Picker icons: [acidanthera/OcBinaryData](https://github.com/acidanthera/OcBinaryData) `640e7e9`.
