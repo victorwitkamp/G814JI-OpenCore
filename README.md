@@ -65,7 +65,7 @@ iGPU - OpenGL apps (for example Photo Booth) crash in Apple's Tiger Lake OpenGL 
 | VoodooGPIO (trackpad GPIO interrupts) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO): [pull request #19](https://github.com/VoodooI2C/VoodooGPIO/pull/19) to VoodooI2C/VoodooGPIO (Raptor Lake-S support) | A DEBUG development build made before the pull request's clean-up, inside [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1 (`e3ac3ed`, DEBUG), whose `IOPCIMatch` adds the Raptor Lake-S PCH's I2C controller (8086:7A4C). |
 | G814AmpDxe.efi (speaker amplifiers for the boot chime) | [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe) | DEBUG build of [`e32d5ef`](https://github.com/victorwitkamp/G814AmpDxe/commit/e32d5ef42336fbbe9d838b290ac5b6fb3d0efc45) (OpenCorePkg master tree, `build -b DEBUG -t XCODE5`). |
 | HookCaseBridge (exports the `org.smichaud.HookCase` symbols that Apple's Tiger Lake kexts link against) | [victorwitkamp/HookCaseBridge](https://github.com/victorwitkamp/HookCaseBridge) | Not in this repository: installed in `/Library/Extensions` with the Tiger Lake kexts (see Intel Graphics below). |
-| G814Amp.kext (speaker amplifiers in macOS) | not published yet | 0.2.0 |
+| G814Amp.kext (speaker amplifiers in macOS) | [victorwitkamp/G814Amp](https://github.com/victorwitkamp/G814Amp) | 0.2.0, built from it (`make` reproduces the binary byte for byte). |
 | IntelBTPatcher.kext 2.5.0 | upstream [OpenIntelWireless/IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) | Built from that commit (master; no release since 2.4.0). |
 
 ## Configuration
@@ -125,7 +125,7 @@ The `.dsl` sources of SSDT-DGPU_v5, SSDT-EC and SSDT-PNLF are in `EFI/OC/ACPI`.
 | ECEnabler | 1.0.6 | Battery status from the EC | [averycblack/ECEnabler](https://github.com/averycblack/ECEnabler) |
 | NootedGreen | 1.0.0 | Raptor Lake-HX iGPU | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx) (see [Source code](#source-code-of-the-g814ji-specific-parts)) |
 | AppleALC | 1.9.8 | Audio (layout 22) | [acidanthera/AppleALC](https://github.com/acidanthera/AppleALC) |
-| G814Amp | 0.2.0 | CS35L41 speaker amplifiers | not published yet |
+| G814Amp | 0.2.0 | CS35L41 speaker amplifiers | [victorwitkamp/G814Amp](https://github.com/victorwitkamp/G814Amp) |
 | USBToolBox + UTBMap | 1.1.1 / 1.2 | USB map | [USBToolBox/kext](https://github.com/USBToolBox/kext); the map is `UTBMap.kext/Contents/Info.plist` |
 | IntelBluetoothFirmware | 2.4.0 | Bluetooth firmware upload | [OpenIntelWireless/IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware) v2.4.0 |
 | IntelBTPatcher | 2.5.0 | Intel Bluetooth fixes (the 2.4.0 release panics on Sequoia) | built from [IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) (master, not released) |
