@@ -64,6 +64,7 @@ iGPU - OpenGL apps (for example Photo Booth) crash in Apple's Tiger Lake OpenGL 
 | NootedGreen.kext (iGPU) | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen), branch [`raptor-lake-hx`](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx): [pull request #23](https://github.com/sgiammori/NootedGreen/pull/23) to sgiammori/NootedGreen | An earlier development build. The branch is its cleaned-up rewrite; this binary is replaced by a build of the branch once that build has been tested on this laptop. |
 | VoodooGPIO (trackpad GPIO interrupts) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO): [pull request #19](https://github.com/VoodooI2C/VoodooGPIO/pull/19) to VoodooI2C/VoodooGPIO (Raptor Lake-S support) | A DEBUG development build made before the pull request's clean-up, inside [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1 (`e3ac3ed`, DEBUG), whose `IOPCIMatch` adds the Raptor Lake-S PCH's I2C controller (8086:7A4C). |
 | G814AmpDxe.efi (speaker amplifiers for the boot chime) | [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe) | An earlier development build; the repository holds the cleaned-up source. |
+| HookCaseBridge (exports the `org.smichaud.HookCase` symbols that Apple's Tiger Lake kexts link against) | [victorwitkamp/HookCaseBridge](https://github.com/victorwitkamp/HookCaseBridge) | Not in this repository: installed in `/Library/Extensions` with the Tiger Lake kexts (see Intel Graphics below). |
 | G814Amp.kext (speaker amplifiers in macOS) | not published yet | 0.2.0 |
 | IntelBTPatcher.kext 2.5.0 | upstream [OpenIntelWireless/IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) | Built from that commit (master; no release since 2.4.0). |
 
@@ -88,6 +89,10 @@ Boot\Fast Boot - Disabled
 **NootedGreen** runs the Raptor Lake-HX iGPU (8086:A788) on Apple's Tiger Lake graphics drivers. DeviceProperties for
 `PciRoot(0x0)/Pci(0x2,0x0)`: `device-id` 0x9A49 and `AAPL,ig-platform-id` 0x9A490000 (Tiger Lake). NootedGreen replaces
 NootedBlue and WhateverGreen. The NVIDIA RTX 4070 dGPU must stay off (SSDT-DGPU_v5) and the VMD controller must be disabled in the BIOS.
+
+Outside this EFI: Apple's Tiger Lake framebuffer and accelerator kexts (16.0.32) are installed in `/Library/Extensions` (approved in
+System Settings, loaded from the Auxiliary Kernel Collection) together with
+[HookCaseBridge](https://github.com/victorwitkamp/HookCaseBridge), without which neither of them loads.
 
 ### SIP
 
