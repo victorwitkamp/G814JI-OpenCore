@@ -55,13 +55,13 @@ Battery - SMCBatteryManager
 
 GPU - NVIDIA GeForce RTX 4070 Laptop GPU (powered off by SSDT-DGPU_v5)
 
-iGPU - OpenGL apps (for example Photo Booth) crash in Apple's Tiger Lake OpenGL driver
+iGPU - the brightness slider and keys do not change the panel's brightness yet; the panel's 240 Hz mode; external displays; hardware video decode
 
 ## Source code of the G814JI-specific parts
 
 | **Part** | **Source** | **Binary in this repository** |
 | -------- | ---------- | ----------------------------- |
-| NootedGreen.kext (iGPU) | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen), branch [`raptor-lake-hx`](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx): [pull request #23](https://github.com/sgiammori/NootedGreen/pull/23) to sgiammori/NootedGreen | An earlier development build. The branch is its cleaned-up rewrite; this binary is replaced by a build of the branch once that build has been tested on this laptop. |
+| NootedGreen.kext (iGPU) | [victorwitkamp/NootedGreen](https://github.com/victorwitkamp/NootedGreen), branch [`raptor-lake-hx`](https://github.com/victorwitkamp/NootedGreen/tree/raptor-lake-hx): [pull request #23](https://github.com/sgiammori/NootedGreen/pull/23) to sgiammori/NootedGreen | Release build of [`4d10017`](https://github.com/victorwitkamp/NootedGreen/commit/4d10017a3ba2a8cdf9aa1b5e37b8b623df098639), the branch head, tested on this laptop. |
 | VoodooGPIO (trackpad GPIO interrupts) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO): [pull request #19](https://github.com/VoodooI2C/VoodooGPIO/pull/19) to VoodooI2C/VoodooGPIO (Raptor Lake-S support) | A DEBUG development build made before the pull request's clean-up, inside [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1 (`e3ac3ed`, DEBUG), whose `IOPCIMatch` adds the Raptor Lake-S PCH's I2C controller (8086:7A4C). |
 | G814AmpDxe.efi (speaker amplifiers for the boot chime) | [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe) | DEBUG build of [`e32d5ef`](https://github.com/victorwitkamp/G814AmpDxe/commit/e32d5ef42336fbbe9d838b290ac5b6fb3d0efc45) (OpenCorePkg master tree, `build -b DEBUG -t XCODE5`). |
 | HookCaseBridge (exports the `org.smichaud.HookCase` symbols that Apple's Tiger Lake kexts link against) | [victorwitkamp/HookCaseBridge](https://github.com/victorwitkamp/HookCaseBridge) | Not in this repository: installed in `/Library/Extensions` with the Tiger Lake kexts (see Intel Graphics below). |
