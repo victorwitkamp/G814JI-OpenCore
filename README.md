@@ -43,7 +43,7 @@ Bluetooth - Intel AX211 (IntelBluetoothFirmware, IntelBTPatcher 2.5.0, BlueToolF
 
 Storage - WD PC SN560 SDDPNQE-1T00-1002
 
-Keyboard - ASUS N-KEY Device on USB port HS03
+Keyboard - ASUS N-KEY Device on USB port HS03; the Fn brightness keys and the keyboard-light keys (G814Keys + BrightnessKeys)
 
 Trackpad - I2C HID (VoodooI2C with the Raptor Lake-S VoodooGPIO, GPIO interrupt mode)
 
@@ -55,7 +55,7 @@ Battery - SMCBatteryManager
 
 GPU - NVIDIA GeForce RTX 4070 Laptop GPU (powered off by SSDT-DGPU_v5)
 
-iGPU - the Fn brightness keys (the slider works); the panel's 240 Hz mode; external displays; hardware video decode
+iGPU - the panel's 240 Hz mode; external displays; hardware video decode
 
 ## Source code of the G814JI-specific parts
 
@@ -66,6 +66,7 @@ iGPU - the Fn brightness keys (the slider works); the panel's 240 Hz mode; exter
 | G814AmpDxe.efi (speaker amplifiers for the boot chime) | [victorwitkamp/G814AmpDxe](https://github.com/victorwitkamp/G814AmpDxe) | DEBUG build of [`e32d5ef`](https://github.com/victorwitkamp/G814AmpDxe/commit/e32d5ef42336fbbe9d838b290ac5b6fb3d0efc45) (OpenCorePkg master tree, `build -b DEBUG -t XCODE5`). |
 | HookCaseBridge (exports the `org.smichaud.HookCase` symbols that Apple's Tiger Lake kexts link against) | [victorwitkamp/HookCaseBridge](https://github.com/victorwitkamp/HookCaseBridge) | Not in this repository: installed in `/Library/Extensions` with the Tiger Lake kexts (see Intel Graphics below). |
 | G814Amp.kext (speaker amplifiers in macOS) | [victorwitkamp/G814Amp](https://github.com/victorwitkamp/G814Amp) | 0.2.0, built from it (`make` reproduces the binary byte for byte). |
+| G814Keys.kext (the Fn brightness and keyboard-light keys) | [victorwitkamp/G814Keys](https://github.com/victorwitkamp/G814Keys) | 1.0.1, built from it (`3915f50`). |
 | IntelBTPatcher.kext 2.5.0 | upstream [OpenIntelWireless/IntelBluetoothFirmware@a414375](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/commit/a414375505fa3b014be32f8fca31b5bbfdf9f10f) | Built from that commit (master; no release since 2.4.0). |
 
 ## Configuration
@@ -135,6 +136,8 @@ The `.dsl` sources of SSDT-DGPU_v5, SSDT-EC and SSDT-PNLF are in `EFI/OC/ACPI`.
 | VoodooI2C (VoodooI2CServices, VoodooInput), VoodooI2CHID | 2.9.1 | Trackpad | [VoodooI2C/VoodooI2C](https://github.com/VoodooI2C/VoodooI2C) v2.9.1, [VoodooI2C/VoodooI2CHID](https://github.com/VoodooI2C/VoodooI2CHID) |
 | VoodooGPIO (inside VoodooI2C.kext) | 1.1 | GPIO interrupts for the trackpad (Raptor Lake-S PCH) | [victorwitkamp/VoodooGPIO](https://github.com/victorwitkamp/VoodooGPIO) (see [Source code](#source-code-of-the-g814ji-specific-parts)) |
 | VoodooPS2Controller, VoodooPS2Keyboard | 2.3.7 | PS/2 keyboard | [acidanthera/VoodooPS2](https://github.com/acidanthera/VoodooPS2) |
+| G814Keys | 1.0.1 | Fn brightness and keyboard-light keys (the N-KEY keyboard's vendor report `0x5a`: the brightness usages to the firmware's WMI hotkey entry, the light to the keyboard's backlight report) | [victorwitkamp/G814Keys](https://github.com/victorwitkamp/G814Keys) (see [Source code](#source-code-of-the-g814ji-specific-parts)) |
+| BrightnessKeys | 1.0.3 | ACPI brightness notifications to the brightness keys | [acidanthera/BrightnessKeys](https://github.com/acidanthera/BrightnessKeys) |
 
 ### UEFI drivers
 
